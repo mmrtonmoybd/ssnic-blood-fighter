@@ -10,10 +10,7 @@ class Home extends BaseController
     }
 
     public function FunctionName()
-{   
-        # code...
-    
-    
-    
-                                    }
+    {
+        // code...
+    }
 }
