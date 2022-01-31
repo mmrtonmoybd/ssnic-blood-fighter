@@ -1,0 +1,53 @@
+name: Codeigniter
+
+on:
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  lint:
+    name: PHP ${{ matrix.php-version }} Lint with PHP CS Fixer
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: 
+          - '8.0'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: tokenizer
+          coverage: none
+
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.php-version }}-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: composer update --ansi --no-interaction
+
+      - name: Run lint on `app/`, `admin/`, `public/`
+        run: vendor/bin/php-cs-fixer fix --verbose --ansi --config=.no-header.php-cs-fixer.dist.php --using-cache=no --diff
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+            commit_message: Apply action changes
