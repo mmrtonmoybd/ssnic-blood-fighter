@@ -63,7 +63,7 @@
                </style>
                <aside  class="mob-hide sidebar col-md-4" style="">
                   <div style="border:1px solid #DDD; border-top-left-radius: calc(0.25rem - 1px); box-shadow: 0 1px 12px 0 rgba(97, 44, 21, 0.14);
-                     border-top-right-radius: calc(0.25rem - 1px); background:#fff; 
+                     border-top-right-radius: calc(0.25rem - 1px); background:#fff;
                      ">
                      <img class="card-img-top" src="https://ssnicblood.xyz/orange_background.webp" alt="LanceBN">
                      <div class="card-body text-center">
@@ -101,14 +101,14 @@ use App\Models\User;
 
 $user = new User();
                               ?>
-                              নামঃ <?php echo $user->getName(); ?><br>  
+                              নামঃ <?= $user->getName(); ?><br>
                               ইমেইলঃ <?= esc($user->getEmail()) ?> <br>
                               ফোন নাম্বারঃ <?= esc($user->getNumber()) ?> <br>
-                              রক্তের গ্রুপঃ <?= esc($user->getBGroup()) ?> <br> 
+                              রক্তের গ্রুপঃ <?= esc($user->getBGroup()) ?> <br>
                               <!----
                                  <a style="color:blue;"> </a>
                                  -->
-                              সর্বশেষ রক্তদানের তারিখঃ  <?= esc($user->getLastdonate()) ?> <br> 
+                              সর্বশেষ রক্তদানের তারিখঃ  <?= esc($user->getLastdonate()) ?> <br>
                               লিঙ্গগত বৈশিষ্টঃ   <?= esc($user->getGender()) ?><br>
                            </div>
                         </div>
@@ -120,5 +120,5 @@ $user = new User();
          <!-- ./content-area -->
       </div>
       </div>
-     
-<?= $this->endSection() ?> 
+
+<?= $this->endSection() ?>

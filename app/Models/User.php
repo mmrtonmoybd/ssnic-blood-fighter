@@ -43,6 +43,7 @@ class User extends Model
     private function getLogedid()
     {
         helper('auth');
+
         return user_id();
     }
 
@@ -56,18 +57,21 @@ class User extends Model
     public function getName()
     {
         helper('auth');
+
         return trim(trim(user()->firstname) . ' ' . trim(user()->lastname));
     }
 
-     public function getBGroup()
+    public function getBGroup()
     {
         helper('auth');
+
         return user()->bgroup;
     }
 
     public function getEmail()
     {
         helper('auth');
+
         return user()->email;
     }
 
@@ -78,20 +82,21 @@ class User extends Model
 
         if ($lastdon !== '0000-00-00 00:00:00.000000') {
             return $lastdon;
-        } 
-        echo "Never donate yet";
+        }
+        echo 'Never donate yet';
     }
 
     public function getGender()
     {
         helper('auth');
+
         return user()->gender;
     }
 
     public function getNumber()
     {
         helper('auth');
+
         return user()->phonenumber;
-        
     }
 }

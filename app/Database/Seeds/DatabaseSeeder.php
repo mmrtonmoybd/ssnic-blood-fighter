@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-      $seed = Database::seeder();
-      $seed->call('AuthGroup');
+        $seed = Database::seeder();
+        $seed->call('AuthGroup');
     }
 }

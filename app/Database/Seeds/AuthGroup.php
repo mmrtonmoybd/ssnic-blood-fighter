@@ -10,26 +10,25 @@ class AuthGroup extends Seeder
 {
     public function run()
     {
-        $db = Database::connect();
+        $db      = Database::connect();
         $builder = $db->table('auth_groups');
 
         $data = [
             [
-                'name' => 'donor',
+                'name'        => 'donor',
                 'description' => 'Normal user call Donor. This user can edit there profile and just see ther blood history.',
             ],
             [
-                'name' => 'contributor',
+                'name'        => 'contributor',
                 'description' => 'The user who manage the blood donor is call contributor. This user also same as donor.',
 
             ],
             [
-                'name' => 'admin',
+                'name'        => 'admin',
                 'description' => 'Admin is a person who can manage everything on this system.',
             ],
         ];
 
         $builder->insertBatch($data);
-
     }
 }

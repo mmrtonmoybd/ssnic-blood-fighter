@@ -10,61 +10,60 @@ class AddColumnsOnUsers extends Migration
     {
         $data = [
 
-        'firstname' => [
-            'type' => 'varchar',
-            'constraint' => 255,
-            'after' => 'username'
-        ],
-        'lastname' => [
-            'type' => 'varchar',
-            'constraint' => 255,
-            'after' => 'username'
-        ],
+            'firstname' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'after'      => 'username',
+            ],
+            'lastname' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+                'after'      => 'username',
+            ],
 
-
-          'phonenumber' => [
-                'type' => 'VARCHAR',
+            'phonenumber' => [
+                'type'       => 'VARCHAR',
                 'constraint' => 15,
-                'after' => 'username'
+                'after'      => 'username',
             ],
 
             'haddress' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => 255,
-                'after' => 'username'
+                'after'      => 'username',
             ],
             'bgroup' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => 6,
-                'after' => 'username'
+                'after'      => 'username',
             ],
             'lastdonate' => [
-                'type' => 'datetime',
+                'type'       => 'datetime',
                 'constraint' => 6,
-                'null' => true,
-                'after' => 'username'
+                'null'       => true,
+                'after'      => 'username',
             ],
             'pphoto' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => 255,
-                'null' => true,
-                'after' => 'username'
+                'null'       => true,
+                'after'      => 'username',
             ],
             'gender' => [
-                'type' => 'VARCHAR',
+                'type'       => 'VARCHAR',
                 'constraint' => 10,
-                'after' => 'username'
+                'after'      => 'username',
             ],
 
             'institute' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 255,
-                'after' => 'username'
+                'after'      => 'username',
             ],
             'batch' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 70,
-                'after' => 'username'
+                'after'      => 'username',
             ],
 
         ];
@@ -74,6 +73,6 @@ class AddColumnsOnUsers extends Migration
 
     public function down()
     {
-        //
+
     }
 }

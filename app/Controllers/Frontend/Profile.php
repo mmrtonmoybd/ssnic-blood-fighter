@@ -9,8 +9,8 @@ class Profile extends BaseController
 {
     public function index()
     {
-//$user = new User();
-//var_dump(user()->firstname);
+        //$user = new User();
+        //var_dump(user()->firstname);
         return view('frontend/dashboard');
     }
 }
