@@ -25,14 +25,14 @@
                               <?php
 
 function getLastdonate()
-    {
-        $lastdon = user()->lastdonate;
+{
+    $lastdon = user()->lastdonate;
 
-        if (($lastdon != '0000-00-00') ) {
-            return $lastdon;
-        }
-        echo 'Never donate yet';
+    if (($lastdon !== '0000-00-00')) {
+        return $lastdon;
     }
+    echo 'Never donate yet';
+}
 
                               ?>
                               নামঃ <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?><br>
