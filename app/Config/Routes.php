@@ -37,6 +37,8 @@ $routes->get('/', 'Frontend\Home::index');
 
 $routes->group('user', ['filter' => 'login'], static function ($routes) {
     $routes->get('dashboard', 'Frontend\Profile::index', ['as' => 'dashboard']);
+    $routes->get('profileupdate', 'Frontend\Profile::updateShow', ['as' => 'profileupdate']);
+    $routes->post('profileupdate', 'Frontend\Profile::update');
 });
 
 /*

@@ -43,14 +43,14 @@
                             <label for="email">Blood Group</label>
                             <select name="bgroup"  class="form-control <?php if (session('errors.bgroup')) : ?>is-invalid<?php endif ?>" required>
                                        <option>Blood Group</option>
-                                       <option  value="A+" <?php (old('bgroup') === 'A+') ? esc('selected') : '' ?>>A+</option>
-                                       <option  value="B+" <?php (old('bgroup') === 'B+') ? esc('selected') : '' ?>>B+</option>
-                                       <option  value="AB+" <?php (old('bgroup') === 'AB+') ? esc('selected') : '' ?>>AB+</option>
-                                       <option  value="O+" <?php (old('bgroup') === 'O+') ? esc('selected') : '' ?>>O+</option>
-                                       <option  value="O-" <?php (old('bgroup') === 'O-') ? esc('selected') : '' ?>>O-</option>
-                                       <option  value="A-" <?php (old('bgroup') === 'A-') ? esc('selected') : '' ?>>A-</option>
-                                       <option  value="B-" <?php (old('bgroup') === 'B-') ? esc('selected') : '' ?>>B-</option>
-                                       <option  value="AB-" <?php (old('bgroup') === 'AB-') ? esc('selected') : '' ?>>AB-</option>
+                                       <option  value="A+" <?php (old('bgroup') === 'A+') ? print('selected') : '' ?>>A+</option>
+                                       <option  value="B+" <?php (old('bgroup') === 'B+') ? print('selected') : '' ?>>B+</option>
+                                       <option  value="AB+" <?php (old('bgroup') === 'AB+') ? print('selected') : '' ?>>AB+</option>
+                                       <option  value="O+" <?php (old('bgroup') === 'O+') ? print('selected') : '' ?>>O+</option>
+                                       <option  value="O-" <?php (old('bgroup') === 'O-') ? print('selected') : '' ?>>O-</option>
+                                       <option  value="A-" <?php (old('bgroup') === 'A-') ? print('selected') : '' ?>>A-</option>
+                                       <option  value="B-" <?php (old('bgroup') === 'B-') ? print('selected') : '' ?>>B-</option>
+                                       <option  value="AB-" <?php (old('bgroup') === 'AB-') ? print('selected') : '' ?>>AB-</option>
                             </select>
                         </div>
 
@@ -58,8 +58,8 @@
                             <label for="email">Gender</label>
                             <select name="gender"  class="form-control <?php if (session('errors.gender')) : ?>is-invalid<?php endif ?>" required>
                                        <option>Gender</option>
-                                       <option  value="male" <?php (old('bgroup') === 'male') ? esc('selected') : '' ?>>Male</option>
-                                       <option  value="female" <?php (old('bgroup') === 'female') ? esc('selected') : '' ?>>Female</option>
+                                       <option  value="male" <?php (old('gender') === 'male') ? print('selected') : '' ?>>Male</option>
+                                       <option  value="female" <?php (old('gender') === 'female') ? print('selected') : '' ?>>Female</option>
                             </select>
                         </div>
 

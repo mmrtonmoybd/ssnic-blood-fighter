@@ -13,57 +13,57 @@ class AddColumnsOnUsers extends Migration
             'firstname' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
             'lastname' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
 
             'phonenumber' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 15,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
 
             'haddress' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
             'bgroup' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 6,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
             'lastdonate' => [
-                'type'       => 'datetime',
-                'constraint' => 6,
+                'type'       => 'date',
                 'null'       => true,
                 'after'      => 'username',
+                'default' => '1971-01-01'
             ],
             'pphoto' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 255,
                 'null'       => true,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
             'gender' => [
                 'type'       => 'VARCHAR',
                 'constraint' => 10,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
 
             'institute' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
             'batch' => [
                 'type'       => 'varchar',
                 'constraint' => 70,
-                'after'      => 'username',
+                'after'      => 'username'
             ],
 
         ];

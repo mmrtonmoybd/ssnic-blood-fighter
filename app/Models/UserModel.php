@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\HTTP\Request;
 use CodeIgniter\Model;
 use Myth\Auth\Authorization\GroupModel;
 use Myth\Auth\Entities\User;
@@ -15,7 +16,7 @@ class UserModel extends Model
     protected $allowedFields  = [
         'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
         'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at',
-        'firstname', 'lastname', 'phonenumber', 'gender', 'institute', 'batch', 'bgroup', 'haddress', 'lastdonate',
+        'firstname', 'lastname', 'phonenumber', 'gender', 'institute', 'batch', 'bgroup', 'haddress', 'lastdonate', 'pphoto',
     ];
     protected $useTimestamps   = true;
     protected $validationRules = [
@@ -34,6 +35,7 @@ class UserModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
     protected $afterInsert        = ['addToGroup'];
+    protected $beforeInsert = ['LasdateCon'];
 
     /**
      * The id of a group to assign.
@@ -115,8 +117,38 @@ class UserModel extends Model
         return $data;
     }
 
-    public function getName(?Type $var = null)
-    {
-        // code...
+    protected function LasdateCon(array $data)
+{
+    if (! isset($data['data']['lastdonate'])) {
+        $$data['data']['lastdonate'] = '1971-01-01';
+        return $data;
     }
+    return $data;
+}
+
+public function userUpdate(Request $request)
+{
+    $data = [
+        'firstname'     => $request->getPost('firstname'),
+        'lastname'      => $request->getPost('lastname'),
+        'phonenumber'   => $request->getPost('phonenumber'),
+        'gender'        => $request->getPost('gender'),
+        'institute'     => $request->getPost('institute'),
+        'batch'         => $request->getPost('batch'),
+        'bgroup'        => $request->getPost('bgroup'),
+        'haddress'      => $request->getPost('haddress'),
+        ];
+    $photo = $request->getFile('photo');
+    if ($request->getFile('photo')->isValid() && !$photo->hasMoved()) {
+       // $newName = $photo->getRandomName();
+        //$pathandname = FCPATH . 'photos';
+       // $store = $photo->move($pathandname);
+        $randomName = $photo->getRandomName();
+        if ($photo->move(FCPATH . 'photos', $randomName))
+        {
+        $data['pphoto'] = 'photos/' . $randomName; 
+        }
+    }
+    return $this->update(user_id(), $data);
+}
 }
