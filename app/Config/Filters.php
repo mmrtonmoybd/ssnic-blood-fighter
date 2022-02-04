@@ -11,6 +11,7 @@ use CodeIgniter\Filters\SecureHeaders;
 use Myth\Auth\Filters\LoginFilter;
 use Myth\Auth\Filters\PermissionFilter;
 use Myth\Auth\Filters\RoleFilter;
+use App\Filters\Throttle;
 
 class Filters extends BaseConfig
 {
@@ -29,6 +30,7 @@ class Filters extends BaseConfig
         'login'         => LoginFilter::class,
         'role'          => RoleFilter::class,
         'permission'    => PermissionFilter::class,
+        'throttle' => Throttle::class,
     ];
 
     /**
@@ -59,7 +61,9 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $methods = [];
+    public $methods = [
+        'post' => ['csrf']
+    ];
 
     /**
      * List of filter aliases that should run on any
@@ -70,5 +74,9 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'throttle' => [ 
+            'before' => ['login', 'register', 'forgot', 'reset-password']
+            ]
+    ];
 }

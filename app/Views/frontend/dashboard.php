@@ -18,7 +18,7 @@
                            </div>
                            <hr>
                            <div style=" color:red;">
-                              অনুগ্রহপূর্বক সর্বশেষ রক্তদানের তথ্য যুক্ত করুন। যুক্ত করতে <a href="<?= route_to('showLastdon') ?>"> এখানে </a> চাপ দিন
+                              অনুগ্রহপূর্বক সর্বশেষ রক্তদানের তথ্য যুক্ত করুন। যুক্ত করতে <a href="<?= route_to('lastDonup') ?>"> এখানে </a> চাপ দিন
                            </div>
                            <div class="row" style="padding:20px; line-height:2;">
                               <br>
