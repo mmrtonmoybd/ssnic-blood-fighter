@@ -81,26 +81,25 @@ class Profile extends BaseController
     public function passwordChng()
     {
         $rules = [
-			'password'	 => 'required|strong_password',
-			'pass_confirm' => 'required|matches[password]',
-		];
+            'password'     => 'required|strong_password',
+            'pass_confirm' => 'required|matches[password]',
+        ];
 
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
         $model = new UserModel();
-        $user = $model->where('id', user_id())
-					  ->first();
-        
+        $user  = $model->where('id', user_id())
+            ->first();
+
         $user->password = $this->request->getPost('password');
 
-        if (!$model->save($user)) {
+        if (! $model->save($user)) {
             return redirect()->back()->withInput()->with('errors', $model->errors());
         }
 
         return redirect('dashboard')->with('message', 'Password update successfull');
-
     }
 
     public function showLastdon()
@@ -113,8 +112,8 @@ class Profile extends BaseController
     public function lastDonup()
     {
         $rules = [
-			'lastdon'	 => 'required|valid_date',
-		];
+            'lastdon' => 'required|valid_date',
+        ];
 
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
@@ -123,7 +122,7 @@ class Profile extends BaseController
         $model = new UserModel();
 
         $data = [
-            'lastdonate' => $this->request->getPost('lastdon')
+            'lastdonate' => $this->request->getPost('lastdon'),
         ];
 
         if (! $model->update(user_id(), $data)) {

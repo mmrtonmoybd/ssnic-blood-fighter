@@ -38,9 +38,9 @@ class AddColumnsOnUsers extends Migration
                 'after'      => 'username',
             ],
             'lastdonate' => [
-                'type'    => 'date',
-                'null'    => true,
-                'after'   => 'username',
+                'type'  => 'date',
+                'null'  => true,
+                'after' => 'username',
             ],
             'pphoto' => [
                 'type'       => 'VARCHAR',

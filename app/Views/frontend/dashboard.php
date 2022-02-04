@@ -28,7 +28,7 @@ function getLastdonate()
 {
     $lastdon = user()->lastdonate;
 
-    if (!is_null($lastdon)) {
+    if (null !== $lastdon) {
         return $lastdon;
     }
     echo 'Never donate yet';
