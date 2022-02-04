@@ -41,7 +41,6 @@ class AddColumnsOnUsers extends Migration
                 'type'    => 'date',
                 'null'    => true,
                 'after'   => 'username',
-                'default' => '1971-01-01',
             ],
             'pphoto' => [
                 'type'       => 'VARCHAR',

@@ -26,7 +26,7 @@ class UserModel extends Model
         'firstname'     => 'required|alpha|max_length[255]',
         'lastname'      => 'required|alpha|max_length[255]',
         'phonenumber'   => 'required|max_length[15]|numeric',
-        'gender'        => 'required|in_list[male,female]',
+        'gender'        => 'required|in_list[Male,Female]',
         'institute'     => 'required|alpha_space|max_length[255]',
         'batch'         => 'required|max_length[70]|alpha_numeric_punct',
         'bgroup'        => 'required|in_list[A+,B+,AB+,O+,O-,A-,B-,AB-]',
@@ -35,7 +35,7 @@ class UserModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
     protected $afterInsert        = ['addToGroup'];
-    protected $beforeInsert       = ['LasdateCon'];
+    //protected $beforeInsert       = ['LasdateCon'];
 
     /**
      * The id of a group to assign.
@@ -117,17 +117,6 @@ class UserModel extends Model
         return $data;
     }
 
-    protected function LasdateCon(array $data)
-    {
-        if (! isset($data['data']['lastdonate'])) {
-            ${$data}['data']['lastdonate'] = '1971-01-01';
-
-            return $data;
-        }
-
-        return $data;
-    }
-
     public function userUpdate(Request $request)
     {
         $data = [
@@ -142,9 +131,6 @@ class UserModel extends Model
         ];
         $photo = $request->getFile('photo');
         if ($request->getFile('photo')->isValid() && ! $photo->hasMoved()) {
-            // $newName = $photo->getRandomName();
-            //$pathandname = FCPATH . 'photos';
-            // $store = $photo->move($pathandname);
             $randomName = $photo->getRandomName();
             if ($photo->move(FCPATH . 'photos', $randomName)) {
                 $data['pphoto'] = 'photos/' . $randomName;

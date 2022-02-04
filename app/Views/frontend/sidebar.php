@@ -68,7 +68,8 @@
                         <p class="card-text"></p>
                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('dashboard') ?>"> <i class="fa fa-user"></i> আমার প্রোফাইল</a></div>
                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('profileupdate') ?>"> <i class="fa fa-edit"></i> ইডিট প্রোফাইল </a></div>
-                        <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href=""> <i class="fa fa-edit"></i> পাসওয়ার্ড পরিবর্তন </a></div>
+                        <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('lastDonup') ?>"> <i class="fa fa-edit"></i> ইডিট সর্বশেষ রক্তদান </a></div>
+                        <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('passwordChange') ?>"> <i class="fa fa-edit"></i> পাসওয়ার্ড পরিবর্তন </a></div>
                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= base_url('logout') ?>"> <i class="fa fa-sign-out"></i> লগ আউট </a></div>
                      </div>
                   </div>

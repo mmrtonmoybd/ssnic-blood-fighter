@@ -9,6 +9,7 @@
                      <div class="tab-pane fade show active" id="worker" role="tabpanel" aria-labelledby="worker-tab">
                      </div>
                      <div class="card card-with-shadow-sm mb-3">
+                         <h2 class="card-header">Profile update</h2>
                         <div class="card-body">
                            <?= view('App\Auth\_message_block') ?>
                            <div class="d-flex align-items-center justify-content-between mb-3">
@@ -66,8 +67,8 @@
                             <label for="email">Gender</label>
                             <select name="gender"  class="form-control <?php if (session('errors.gender')) : ?>is-invalid<?php endif ?>" required>
                                        <option>Gender</option>
-                                       <option  value="male" <?php (old('gender') === 'male' || user()->gender === 'male') ? print('selected') : '' ?>>Male</option>
-                                       <option  value="female" <?php (old('gender') === 'female' || user()->gender === 'female') ? print('selected') : '' ?>>Female</option>
+                                       <option  value="Male" <?php (old('gender') === 'Male' || user()->gender === 'Male') ? print('selected') : '' ?>>Male</option>
+                                       <option  value="Female" <?php (old('gender') === 'Female' || user()->gender === 'Female') ? print('selected') : '' ?>>Female</option>
                             </select>
                         </div>
 
@@ -99,7 +100,7 @@
 
                         <br>
 
-                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block"><?=lang('Auth.register')?></button>
+                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block">Profile Update</button>
                               </form>
                            </div>
                         </div>

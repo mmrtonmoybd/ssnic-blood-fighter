@@ -1,6 +1,6 @@
 <?= $this->extend('App\Views\Auth\layout') ?>
 <?= $this->section('main') ?>
-<div class="container">
+<div class="container container" style="padding-top:100px;"">
          <center>
             <h1 style="color:red;">SSNIC Blood Warrior's </h1>
             <div id="containerBlood">

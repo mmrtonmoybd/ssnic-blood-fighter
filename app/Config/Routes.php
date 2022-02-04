@@ -37,8 +37,15 @@ $routes->get('/', 'Frontend\Home::index');
 
 $routes->group('user', ['filter' => 'login'], static function ($routes) {
     $routes->get('dashboard', 'Frontend\Profile::index', ['as' => 'dashboard']);
+
     $routes->get('profileupdate', 'Frontend\Profile::updateShow', ['as' => 'profileupdate']);
     $routes->post('profileupdate', 'Frontend\Profile::update');
+
+    $routes->get('passwordchange', 'Frontend\Profile::showPasswordcng', ['as' => 'passwordChange']);
+    $routes->post('passwordchange', 'Frontend\Profile::passwordChng');
+
+    $routes->get('lastblooddonate', 'Frontend\Profile::showLastdon', ['as' => 'lastDonup']);
+    $routes->post('lastblooddonate', 'Frontend\Profile::lastDonup');
 });
 
 /*

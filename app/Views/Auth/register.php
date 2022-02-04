@@ -58,8 +58,8 @@
                             <label for="email">Gender</label>
                             <select name="gender"  class="form-control <?php if (session('errors.gender')) : ?>is-invalid<?php endif ?>" required>
                                        <option>Gender</option>
-                                       <option  value="male" <?php (old('gender') === 'male') ? print('selected') : '' ?>>Male</option>
-                                       <option  value="female" <?php (old('gender') === 'female') ? print('selected') : '' ?>>Female</option>
+                                       <option  value="Male" <?php (old('gender') === 'Male') ? print('selected') : '' ?>>Male</option>
+                                       <option  value="Female" <?php (old('gender') === 'Female') ? print('selected') : '' ?>>Female</option>
                             </select>
                         </div>
 
@@ -81,11 +81,6 @@
                         <div class="form-group">
                             <label for="batch">Batch</label>
                             <input type="text" class="form-control <?php if (session('errors.batch')) : ?>is-invalid<?php endif ?>" name="batch" placeholder="Batch-21" value="<?= old('batch') ?>" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastdonate">Last Blood Donate (Optional)</label>
-                            <input type="date" class="form-control <?php if (session('errors.lastdonate')) : ?>is-invalid<?php endif ?>" name="lastdonate" placeholder="Last Blood Donate" value="<?= old('lastdonate') ?>">
                         </div>
 
                         <div class="form-group">

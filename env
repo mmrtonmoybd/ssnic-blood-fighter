@@ -131,3 +131,17 @@
 #--------------------------------------------------------------------
 
 # curlrequest.shareOptions = true
+
+#--------------------------------------------------------------------
+# Email setting
+#--------------------------------------------------------------------
+
+# email.fromEmail=
+# email.fromName=
+# email.protocol=
+# email.SMTPHost=
+# email.SMTPUser=
+# email.SMTPPass=
+# email.SMTPPort=
+# email.SMTPTimeout=
+# email.SMTPCrypto=

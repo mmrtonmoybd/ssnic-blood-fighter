@@ -18,7 +18,7 @@
                            </div>
                            <hr>
                            <div style=" color:red;">
-                              অনুগ্রহপূর্বক সর্বশেষ রক্তদানের তথ্য যুক্ত করুন। যুক্ত করতে <a href=""> এখানে </a> চাপ দিন
+                              অনুগ্রহপূর্বক সর্বশেষ রক্তদানের তথ্য যুক্ত করুন। যুক্ত করতে <a href="<?= route_to('showLastdon') ?>"> এখানে </a> চাপ দিন
                            </div>
                            <div class="row" style="padding:20px; line-height:2;">
                               <br>
@@ -28,7 +28,7 @@ function getLastdonate()
 {
     $lastdon = user()->lastdonate;
 
-    if (($lastdon !== '0000-00-00')) {
+    if (!is_null($lastdon)) {
         return $lastdon;
     }
     echo 'Never donate yet';
@@ -37,7 +37,11 @@ function getLastdonate()
                               ?>
                               নামঃ <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?><br>
                               ইমেইলঃ <?= esc(user()->email) ?> <br>
+                              Username:  <?= esc(user()->username) ?> <br>
                               ফোন নাম্বারঃ <?= esc(user()->phonenumber) ?> <br>
+                              বাসার ঠিকানা: <?= esc(user()->haddress) ?> <br>
+                              শিক্ষা প্রতিষ্ঠান: <?= esc(user()->institute) ?> <br>
+                              ব্যাচ: <?= esc(user()->batch) ?> <br>
                               রক্তের গ্রুপঃ <?= esc(user()->bgroup) ?> <br>
                               <!----
                                  <a style="color:blue;"> </a>
