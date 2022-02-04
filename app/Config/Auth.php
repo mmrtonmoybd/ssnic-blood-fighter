@@ -84,7 +84,7 @@ class Auth extends \Myth\Auth\Config\Auth
      *
      * @var string[]
      */
-    public $personalFields = ['firstname', 'lastname', 'phonenumber', 'gender', 'institute', 'batch', 'bgroup', 'haddress', 'lastdonate'];
+    public $personalFields = ['firstname', 'lastname', 'phonenumber', 'gender', 'institute', 'batch', 'bgroup', 'haddress'];
 
     /**
      * --------------------------------------------------------------------
@@ -292,7 +292,7 @@ class Auth extends \Myth\Auth\Config\Auth
      */
     public $passwordValidators = [
         'Myth\Auth\Authentication\Passwords\CompositionValidator',
-        'Myth\Auth\Authentication\Passwords\NothingPersonalValidator',
+        //'Myth\Auth\Authentication\Passwords\NothingPersonalValidator',
         'Myth\Auth\Authentication\Passwords\DictionaryValidator',
         // 'Myth\Auth\Authentication\Passwords\PwnedValidator',
     ];
