@@ -11,5 +11,6 @@ class DatabaseSeeder extends Seeder
     {
         $seed = Database::seeder();
         $seed->call('AuthGroup');
+        $seed->call('UsersSeeder');
     }
 }

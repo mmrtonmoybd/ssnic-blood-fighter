@@ -27,14 +27,14 @@ class Profile extends BaseController
         //$user = new User();
         //var_dump(user()->firstname);
 
-        return view('frontend/dashboard', [
+        return view('Frontend/dashboard', [
             'role' => $this->getRole(),
         ]);
     }
 
     public function updateShow()
     {
-        return view('frontend/profileupdate', [
+        return view('Frontend/profileupdate', [
             'role' => $this->getRole(),
         ]);
     }
@@ -73,7 +73,7 @@ class Profile extends BaseController
 
     public function showPasswordcng()
     {
-        return view('frontend/passwordcng', [
+        return view('Frontend/passwordcng', [
             'role' => $this->getRole(),
         ]);
     }
@@ -104,7 +104,7 @@ class Profile extends BaseController
 
     public function showLastdon()
     {
-        return view('frontend/lastdon', [
+        return view('Frontend/lastdon', [
             'role' => $this->getRole(),
         ]);
     }

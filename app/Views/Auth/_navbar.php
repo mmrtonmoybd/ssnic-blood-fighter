@@ -9,10 +9,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('/') ?>">Home</a>
             </li>
+            <?php 
+      $authenticate = service('authentication');
+      $authorization = service('authorization');
+            ?>
             <?php if (service('authentication')->check()) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= route_to('dashboard') ?>">Profile</a>
             </li>
+            <?php if ($authorization->inGroup('admin', $authenticate->id())) { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to('admin.dashboard') ?>">Admin Panel</a>
+            </li>
+            <?php } ?>  
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
             </li>

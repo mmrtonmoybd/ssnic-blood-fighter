@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -46,6 +46,14 @@ $routes->group('user', ['filter' => 'login'], static function ($routes) {
 
     $routes->get('lastblooddonate', 'Frontend\Profile::showLastdon', ['as' => 'lastDonup']);
     $routes->post('lastblooddonate', 'Frontend\Profile::lastDonup');
+});
+
+// Admin Router
+
+$routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
+
+    $routes->get('dashboard', 'Admin\Dashboard::index', ['as' => 'admin.dashboard']);
+
 });
 
 /*

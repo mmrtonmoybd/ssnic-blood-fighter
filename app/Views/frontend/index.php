@@ -1,4 +1,4 @@
-<?= $this->extend('App\Views\Auth\layout') ?>
+<?= $this->extend('App\Views\App\layout') ?>
 <?= $this->section('main') ?>
 <div class="container container" style="padding-top:100px;"">
          <center>
