@@ -51,9 +51,7 @@ $routes->group('user', ['filter' => 'login'], static function ($routes) {
 // Admin Router
 
 $routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
-
     $routes->get('dashboard', 'Admin\Dashboard::index', ['as' => 'admin.dashboard']);
-
 });
 
 /*

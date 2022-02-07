@@ -8,6 +8,6 @@ class UsersGroup extends Seeder
 {
     public function run()
     {
-        //
+
     }
 }
