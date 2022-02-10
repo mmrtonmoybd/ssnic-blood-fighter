@@ -1,4 +1,4 @@
-<?= $this->extend('App\Views\App\layout') ?>
+<?= $this->extend('app/layout') ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
@@ -11,7 +11,7 @@
                      </div>
                      <div class="card card-with-shadow-sm mb-3">
                         <div class="card-body">
-                           <?= view('Auth/_message_block') ?>
+                           <?= view('auth/_message_block') ?>
                            <div class="d-flex align-items-center justify-content-between mb-3">
                               <h4 class="text-gray-400 m-0"><b>আমার প্রোফাইল </b> </h4>
                               <a href="<?= route_to('profileupdate') ?>" style="text-align:right; font-size:13px; text-decoration:none;"><b>পরিবর্তন করুন </b> </a>

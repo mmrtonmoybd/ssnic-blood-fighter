@@ -1,8 +1,8 @@
-<?= $this->extend('App\Views\App\layout') ?>
+<?= $this->extend('app/layout') ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
-               <?= view('App\Views\Frontend\sidebar') ?>
+               <?= view('frontend/sidebar') ?>
                <!-- ./sidebar -->
                <div class="content-area col-md-8">
                   <div class="tab-content" id="profileInfoTabsContent">
@@ -11,7 +11,7 @@
                      <div class="card card-with-shadow-sm mb-3">
                          <h2 class="card-header">Profile update</h2>
                         <div class="card-body">
-                           <?= view('App\Auth\_message_block') ?>
+                          <?= view('auth/_message_block') ?>
                            <div class="d-flex align-items-center justify-content-between mb-3">
 
 

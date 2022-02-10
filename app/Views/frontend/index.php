@@ -1,4 +1,4 @@
-<?= $this->extend('App\Views\App\layout') ?>
+<?= $this->extend('app/layout') ?>
 <?= $this->section('main') ?>
 <div class="container container" style="padding-top:100px;"">
          <center>
