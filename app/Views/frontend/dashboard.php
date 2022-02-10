@@ -1,8 +1,8 @@
-<?= $this->extend('App\\Views\\App\\layout') ?>
+<?= $this->extend('App\Views\App\layout') ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
-               <?= view('App\\Views\\Frontend\\sidebar') ?>
+               <?= view('App\Views\Frontend\sidebar') ?>
 
                <!-- ./sidebar -->
                <div class="content-area col-md-8">
