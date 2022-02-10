@@ -27,7 +27,7 @@ class Profile extends BaseController
         //$user = new User();
         //var_dump(user()->firstname);
 
-        return view('frontend/dashboard', [
+        return view('Frontend/dashboard', [
             'role' => $this->getRole(),
         ]);
     }
