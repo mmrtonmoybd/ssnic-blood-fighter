@@ -2,7 +2,7 @@
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
-               <?= view('Frontend/sidebar') ?>
+               <?= view('App\Frontend\sidebar') ?>
 
                <!-- ./sidebar -->
                <div class="content-area col-md-8">
