@@ -11,7 +11,7 @@
                      <div class="card card-with-shadow-sm mb-3">
                          <h2 class="card-header">Profile update</h2>
                         <div class="card-body">
-                          <?= view('auth/_message_block') ?>
+                          <?= view('App\Auth\_message_block') ?>
                            <div class="d-flex align-items-center justify-content-between mb-3">
 
 
