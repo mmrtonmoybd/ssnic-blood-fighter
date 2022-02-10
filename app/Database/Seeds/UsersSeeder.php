@@ -22,7 +22,7 @@ class UsersSeeder extends Seeder
                 'batch'       => 'Batch-21',
                 'bgroup'      => 'O+',
                 'haddress'    => 'Mymensingh',
-                'password'    => Password::hash('224466@@'),
+                'password_hash'    => Password::hash('224466@@'),
                 'active'      => 1,
             ],
             [
@@ -36,7 +36,7 @@ class UsersSeeder extends Seeder
                 'batch'       => 'Batch-21',
                 'bgroup'      => 'O+',
                 'haddress'    => 'Mymensingh',
-                'password'    => Password::hash('224466@@'),
+                'password_hash'    => Password::hash('224466@@'),
                 'active'      => 1,
             ],
             [
@@ -50,7 +50,7 @@ class UsersSeeder extends Seeder
                 'batch'       => 'Batch-21',
                 'bgroup'      => 'O+',
                 'haddress'    => 'Mymensingh',
-                'password'    => Password::hash('224466@@'),
+                'password_hash'    => Password::hash('224466@@'),
                 'active'      => 1,
             ],
         ];
