@@ -8,7 +8,7 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('Frontend/index');
+        return view('frontend/index');
     }
 
     public function FunctionName()

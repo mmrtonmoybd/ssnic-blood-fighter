@@ -1,7 +1,7 @@
-<?= view('App\Auth\_header') ?>
+<?= view('App\Views\Auth\_header') ?>
 
 <main role="main" class="container">
 	<?= $this->renderSection('main') ?>
 </main><!-- /.container -->
 
-<?= view('App\Auth\_footer') ?>
+<?= view('App\Views\Auth\_footer') ?>
