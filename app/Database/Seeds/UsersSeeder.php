@@ -4,6 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 use Myth\Auth\Entities\User;
+use Myth\Auth\Password;
 
 class UsersSeeder extends Seeder
 {
@@ -21,7 +22,7 @@ class UsersSeeder extends Seeder
                 'batch'       => 'Batch-21',
                 'bgroup'      => 'O+',
                 'haddress'    => 'Mymensingh',
-                'password'    => '224466@@',
+                'password'    => Password::hash('224466@@'),
                 'active'      => 1,
             ],
             [
@@ -35,7 +36,7 @@ class UsersSeeder extends Seeder
                 'batch'       => 'Batch-21',
                 'bgroup'      => 'O+',
                 'haddress'    => 'Mymensingh',
-                'password'    => '224466@@',
+                'password'    => Password::hash('224466@@'),
                 'active'      => 1,
             ],
             [
@@ -49,7 +50,7 @@ class UsersSeeder extends Seeder
                 'batch'       => 'Batch-21',
                 'bgroup'      => 'O+',
                 'haddress'    => 'Mymensingh',
-                'password'    => '224466@@',
+                'password'    => Password::hash('224466@@'),
                 'active'      => 1,
             ],
         ];
@@ -58,8 +59,8 @@ class UsersSeeder extends Seeder
 
         foreach ($users as $user) {
             // Use the User entity to handle correct password hashing
-            $user = new User($user);
-            $builder->insert($user->toArray());
+            //$user = new User($user);
+            $builder->insert($user);
         }
 
         // GROUPS-USERS
