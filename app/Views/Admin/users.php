@@ -40,23 +40,18 @@
 
                   <tbody>
                       <?php
-                      function getGroup($name, $id)
-                      {
-                          $db  = \Config\Database::connect();
-                          $get = $db->table('auth_groups') - where('name', $name)->get();
-
-                          return $db->table('auth_groups') - where('name', $name)->get();
-                      }
                       function getRole(int $id)
                       {
+                        $authorize = service('authorization');
                           if ($authorize->inGroup('admin', $id)) {
                               return '<p class="btn btn-danger">Admin</p>';
-                          }
-                          if ($authorize->inGroup('contributor', $id)) {
+                          } elseif ($authorize->inGroup('contributor', $id)) {
                               return '<p class="btn btn-warning">Contributor</p>';
+                          } else {
+                            return '<p class="btn btn-info">Donor</p>';
                           }
 
-                          return '<p class="btn btn-info">Donor</p>';
+                          
                       }
 
                       function isBanned($user)
@@ -72,16 +67,19 @@
                       <tr>
                       <td><?= $user->id ?></td>
                       <td><?= esc(trim(trim($user->firstname) . ' ' . trim($user->lastname))) ?></td>
-                      <td><?= $user->bgroup ?></td>
-                      <td><?= $user->username ?></td>
-                      <td><?= $user->email ?></td>
-                      <td><?= (null !== $user->lastdonate) ? $user->lastdonate : 'Never donate yet' ?></td>
-                      <td><?= $user->phonenumber ?></td>
-                      <td><?= $user->haddress ?></td>
-                      <td></td>
+                      <td><?= esc($user->bgroup) ?></td>
+                      <td><?= esc($user->email) ?></td>
+                      <td><?= (null !== $user->lastdonate) ? $user->lastdonate : $user->lastdonate ?></td>
+                      <td><?= esc($user->phonenumber) ?></td>
+                      <td><?= esc($user->haddress) ?></td>
+                      <td><?= getRole($user->id) ?></td>
                       <td><?= isBanned($user) ?></td>
                       <td><?= $user->created_at ?></td>
-                      <td><div class="btn-group"><a class="btn btn-primary" href=''><i class="fa fa-lg fa-eye"></i></a><a class="btn btn-primary" href=""><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-primary" href=""><i class="fa fa-lg fa-trash"></i></a></div></td>
+                      <td><?php if (user()->id !== $user->id) { ?><div class="btn-group">
+                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.view', $user->id)) ?>"><i class="fa fa-lg fa-eye"></i></a>
+                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.update', $user->id)) ?>"><i class="fa fa-lg fa-edit"></i></a>
+                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.delete', $user->id)) ?>"><i class="fa fa-lg fa-trash"></i></a>
+                      </div><?php } ?></td>
                     </tr>
                     <?php } ?>
                   </tbody>

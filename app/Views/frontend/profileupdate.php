@@ -21,14 +21,14 @@
                                   <div class="form-group">
                             <label for="firstname">First Name</label>
                             <input type="text" class="form-control <?php if (session('errors.firstname')) : ?>is-invalid<?php endif ?>"
-                                   name="firstname" aria-describedby="firstnameHelp" placeholder="First Name" value="<?= old('firstname') ?: user()->firstname ?>" required>
+                                   name="firstname" aria-describedby="firstnameHelp" placeholder="First Name" value="<?= old('firstname') ?: esc(user()->firstname) ?>" required>
 
                         </div>
 
                         <div class="form-group">
                             <label for="lastname">Last Name</label>
                             <input type="text" class="form-control <?php if (session('errors.lastname')) : ?>is-invalid<?php endif ?>"
-                                   name="lastname" aria-describedby="lastnameHelp" placeholder="Last Name" value="<?= old('lastname') ?: user()->lastname ?>" required>
+                                   name="lastname" aria-describedby="lastnameHelp" placeholder="Last Name" value="<?= old('lastname') ?: esc(user()->lastname) ?>" required>
 
                         </div>
 
@@ -74,22 +74,22 @@
 
                         <div class="form-group">
                             <label for="phonenumber">Phone Number</label>
-                            <input type="text" class="form-control <?php if (session('errors.phonenumber')) : ?>is-invalid<?php endif ?>" name="phonenumber" placeholder="Phone Number" value="<?= old('phonenumber') ?: user()->phonenumber ?>" required>
+                            <input type="text" class="form-control <?php if (session('errors.phonenumber')) : ?>is-invalid<?php endif ?>" name="phonenumber" placeholder="Phone Number" value="<?= old('phonenumber') ?: esc(user()->phonenumber) ?>" required>
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your phone number with anyone else.</small>
                         </div>
 
                          <div class="form-group">
                             <label for="haddress">Home Address</label>
-                            <textarea type="text" name="haddress" class="form-control <?php if (session('errors.haddress')) : ?>is-invalid<?php endif ?>"  placeholder="Home Address" required><?= old('haddress') ?: user()->haddress ?></textarea>
+                            <textarea type="text" name="haddress" class="form-control <?php if (session('errors.haddress')) : ?>is-invalid<?php endif ?>"  placeholder="Home Address" required><?= old('haddress') ?: esc(user()->haddress) ?></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="institute">Educational Institute</label>
-                            <input type="text" class="form-control <?php if (session('errors.institute')) : ?>is-invalid<?php endif ?>" name="institute" placeholder="Educational Intitute" value="<?= old('institute') ?: user()->institute ?>" required>
+                            <input type="text" class="form-control <?php if (session('errors.institute')) : ?>is-invalid<?php endif ?>" name="institute" placeholder="Educational Intitute" value="<?= old('institute') ?: esc(user()->institute) ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="batch">Batch</label>
-                            <input type="text" class="form-control <?php if (session('errors.batch')) : ?>is-invalid<?php endif ?>" name="batch" placeholder="Batch-21" value="<?= old('batch') ?: user()->batch ?>" required>
+                            <input type="text" class="form-control <?php if (session('errors.batch')) : ?>is-invalid<?php endif ?>" name="batch" placeholder="Batch-21" value="<?= old('batch') ?: esc(user()->batch) ?>" required>
                         </div>
 <?= ! empty(user()->pphoto) ? '<br><br><br><br><br>' : '' ?>
                         <div class="form-group">

@@ -8,7 +8,7 @@
       </div>
       <ul class="app-menu">
         <li><a class="app-menu__item <?= (url_is(route_to('admin.dashboard'))) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.dashboard')) ?>"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li class="treeview"><a class="app-menu__item <?= (url_is(route_to('admin.users'))) ? 'active' : '' ?>" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Users</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item <?= (url_is(route_to('admin.users')) || url_is('admin/users/update/*') || url_is('admin/users/view/*')) ? 'active' : '' ?>" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Users</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item <?= (url_is(route_to('admin.users'))) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.users')) ?>"><i class="icon fa fa-circle-o"></i> All users</a></li>
             <li><a class="treeview-item " href=""><i class="icon fa fa-circle-o"></i> Widgets</a></li>
