@@ -58,4 +58,4 @@
                   background-color:red;
                   }
                </style>
-<?= $this->endSection() ?> 
+<?= $this->endSection() ?>

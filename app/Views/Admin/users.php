@@ -43,16 +43,16 @@
                       function getGroup($name, $id)
                       {
                           $db  = \Config\Database::connect();
-                          $get = $db->table('auth_groups')-where('name', $name)->get();
-                          $get = $db->table('auth_groups')-where('name', $name)->get();
-                          return $get;
+                          $get = $db->table('auth_groups') - where('name', $name)->get();
+
+                          return $db->table('auth_groups') - where('name', $name)->get();
                       }
                       function getRole(int $id)
                       {
-
                           if ($authorize->inGroup('admin', $id)) {
                               return '<p class="btn btn-danger">Admin</p>';
-                          } elseif ($authorize->inGroup('contributor', $id)) {
+                          }
+                          if ($authorize->inGroup('contributor', $id)) {
                               return '<p class="btn btn-warning">Contributor</p>';
                           }
 
@@ -60,12 +60,13 @@
                       }
 
                       function isBanned($user)
-	                {
-                        if (isset($user->status) && $user->status === 'banned') {
-                            return '<p class="btn btn-danger">Ban</p>';
-                        }
-		                return '<p class="btn btn-success">Unban</p>';
-	                }
+                      {
+                          if (isset($user->status) && $user->status === 'banned') {
+                              return '<p class="btn btn-danger">Ban</p>';
+                          }
+
+                          return '<p class="btn btn-success">Unban</p>';
+                      }
                       ?>
                       <?php foreach ($users as $user) { ?>
                       <tr>

@@ -10,6 +10,7 @@ class UserSector extends BaseController
     public function index()
     {
         $users = new UserModel();
+
         return view('admin/users', [
             'users' => $users->findAll(),
         ]);
