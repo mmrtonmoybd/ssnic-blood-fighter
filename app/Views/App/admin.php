@@ -1,8 +1,8 @@
-<?= view('App\Admin\_header') ?>
-<?= view('App\Admin\_sidebar') ?>
+<?= view('App\Admin\Main\_header') ?>
+<?= view('App\Admin\Main\_sidebar') ?>
 
 <main class="app-content">
     <?= $this->renderSection('main') ?>
 </main>
 
-<?= view('App\Admin\_footer') ?>
+<?= view('App\Admin\Main\_footer') ?>

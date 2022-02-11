@@ -35,23 +35,25 @@ $routes->get('/', 'Frontend\Home::index');
 
 // Frontend Router
 
-$routes->group('user', ['filter' => 'login'], static function ($routes) {
-    $routes->get('dashboard', 'Frontend\Profile::index', ['as' => 'dashboard']);
+$routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Frontend'], static function ($routes) {
+    $routes->get('dashboard', 'Profile::index', ['as' => 'dashboard']);
 
-    $routes->get('profileupdate', 'Frontend\Profile::updateShow', ['as' => 'profileupdate']);
-    $routes->post('profileupdate', 'Frontend\Profile::update');
+    $routes->get('profileupdate', 'Profile::updateShow', ['as' => 'profileupdate']);
+    $routes->post('profileupdate', 'Profile::update');
 
-    $routes->get('passwordchange', 'Frontend\Profile::showPasswordcng', ['as' => 'passwordChange']);
-    $routes->post('passwordchange', 'Frontend\Profile::passwordChng');
+    $routes->get('passwordchange', 'Profile::showPasswordcng', ['as' => 'passwordChange']);
+    $routes->post('passwordchange', 'Profile::passwordChng');
 
-    $routes->get('lastblooddonate', 'Frontend\Profile::showLastdon', ['as' => 'lastDonup']);
-    $routes->post('lastblooddonate', 'Frontend\Profile::lastDonup');
+    $routes->get('lastblooddonate', 'Profile::showLastdon', ['as' => 'lastDonup']);
+    $routes->post('lastblooddonate', 'Profile::lastDonup');
 });
 
 // Admin Router
 
-$routes->group('admin', ['filter' => 'role:admin'], static function ($routes) {
-    $routes->get('dashboard', 'Admin\Dashboard::index', ['as' => 'admin.dashboard']);
+$routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controllers\Admin'], static function ($routes) {
+    $routes->get('dashboard', 'Dashboard::index', ['as' => 'admin.dashboard']);
+
+    $routes->get('users', 'UserSector::index', ['as' => 'admin.users']);
 });
 
 /*
