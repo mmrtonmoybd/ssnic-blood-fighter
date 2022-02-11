@@ -11,7 +11,7 @@ class UserSector extends BaseController
     {
         $users = new UserModel();
 
-        return view('admin/users', [
+        return view('Admin/users', [
             'users' => $users->findAll(),
         ]);
     }
