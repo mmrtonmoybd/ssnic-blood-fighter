@@ -26,7 +26,6 @@
                       <th>Id</th>
                       <th>Full name</th>
                       <th>Blood Group</th>
-                      <th>Username</th>
                       <th>Email</th>
                       <th>Last donation</th>
                       <th>Phone number</th>
@@ -74,11 +73,15 @@
                       <td><?= getRole($user->id) ?></td>
                       <td><?= isBanned($user) ?></td>
                       <td><?= $user->created_at ?></td>
-                      <td><?php if (user()->id !== $user->id) { ?><div class="btn-group">
+                      <td>
+                      <?php if (user()->id !== $user->id) { ?>
+                        <div class="btn-group">
                         <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.view', $user->id)) ?>"><i class="fa fa-lg fa-eye"></i></a>
                         <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.update', $user->id)) ?>"><i class="fa fa-lg fa-edit"></i></a>
                         <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.delete', $user->id)) ?>"><i class="fa fa-lg fa-trash"></i></a>
-                      </div><?php } ?></td>
+                      </div>
+                      <?php } ?>
+                    </td>
                     </tr>
                     <?php } ?>
                   </tbody>
