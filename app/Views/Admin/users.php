@@ -42,16 +42,15 @@
                       <?php
                       function getRole(int $id)
                       {
-                        $authorize = service('authorization');
+                          $authorize = service('authorization');
                           if ($authorize->inGroup('admin', $id)) {
                               return '<p class="btn btn-danger">Admin</p>';
-                          } elseif ($authorize->inGroup('contributor', $id)) {
+                          }
+                          if ($authorize->inGroup('contributor', $id)) {
                               return '<p class="btn btn-warning">Contributor</p>';
-                          } else {
-                            return '<p class="btn btn-info">Donor</p>';
                           }
 
-                          
+                          return '<p class="btn btn-info">Donor</p>';
                       }
 
                       function isBanned($user)

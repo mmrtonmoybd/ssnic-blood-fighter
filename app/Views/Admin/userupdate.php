@@ -10,7 +10,7 @@
           <li class="breadcrumb-item"><a href="<?= base_url(route_to('admin.users.update', $user->id)) ?>">User update</a></li>
         </ul>
       </div>
-	  
+
 	  <div class="row">
         <div class="col-md-12">
           <div class="tile">
@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="phonenumber">Phone Number</label>
                             <input type="text" class="form-control " placeholder="Phone Number" value="<?= esc($user->phonenumber) ?>" disabled>
-                      
+
                         </div>
 
                          <div class="form-group">
@@ -73,15 +73,15 @@
                                        <option  value="unbanned" <?php (old('status') === 'unbanned' || empty($user->status)) ? print('selected') : '' ?>>Unban</option>
                             </select>
                         </div>
-                      
+
 					  <div class="tile-footer">
               <button class="btn btn-primary" type="submit">Save</button>
             </div>
                 </form>
               </div>
             </div>
-			
-			
+
+
           </div>
         </div>
       </div>

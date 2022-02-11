@@ -10,7 +10,7 @@
           <li class="breadcrumb-item"><a href="<?= base_url() ?>">User update</a></li>
         </ul>
       </div>
-        
+
 
 
  <div class="row">
@@ -49,7 +49,7 @@ function getLastdonate($lastdon)
                               লিঙ্গগত বৈশিষ্টঃ   <?= esc($user->gender) ?><br>
             </div>
           </div>
-                             
+
                            </div>
  </div>
  <?= $this->endSection() ?>

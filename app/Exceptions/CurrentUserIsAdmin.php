@@ -2,7 +2,9 @@
 
 namespace App\Exceptions;
 
-class CurrentUserIsAdmin extends \RuntimeException
+use RuntimeException;
+
+class CurrentUserIsAdmin extends RuntimeException
 {
     public static function forAdmin()
     {

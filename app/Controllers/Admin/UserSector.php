@@ -3,10 +3,10 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\UserModel;
-use Myth\Auth\Exceptions\UserNotFoundException;
 use App\Exceptions\CurrentUserIsAdmin;
+use App\Models\UserModel;
 use Config\Database;
+use Myth\Auth\Exceptions\UserNotFoundException;
 
 class UserSector extends BaseController
 {
@@ -22,39 +22,40 @@ class UserSector extends BaseController
     public function updateShow($id)
     {
         $model = new UserModel();
-        $user = $model->find($id);
+        $user  = $model->find($id);
 
         $authorize = service('authorization');
-//var_dump($id);
-        if (!$user) {
-           // throw UserNotFoundException::forUserID($id);
-        } elseif (user()->id == $id) {
-           // throw CurrentUserIsAdmin::forAdmin();
+        // var_dump($id);
+        if (! $user) {
+            // throw UserNotFoundException::forUserID($id);
+        } elseif (user()->id === $id) {
+            // throw CurrentUserIsAdmin::forAdmin();
         }
 
         return view('Admin/userupdate', [
-            'user' => $user,
+            'user'      => $user,
             'authorize' => $authorize,
         ]);
     }
 
     public function update($id)
     {
-        $model = new UserModel();
-        $user = $model->find($id);
+        $model     = new UserModel();
+        $user      = $model->find($id);
         $authorize = service('authorization');
 
-        if (!$user) {
+        if (! $user) {
             throw UserNotFoundException::forUserID($id);
-        } elseif (user()->id == $id) {
+        }
+        if (user()->id === $id) {
             throw CurrentUserIsAdmin::forAdmin();
         }
 
         $rules = [
             'firstname' => 'required|alpha|max_length[255]',
-            'lastname' => 'required|alpha|max_length[255]', 
-            'status' => 'required|in_list[banned,unbanned]',
-            'role' => 'required|in_list[donor,contributor,admin]',
+            'lastname'  => 'required|alpha|max_length[255]',
+            'status'    => 'required|in_list[banned,unbanned]',
+            'role'      => 'required|in_list[donor,contributor,admin]',
         ];
 
         if (! $this->validate($rules)) {
@@ -65,20 +66,18 @@ class UserSector extends BaseController
 
         $data = [
             'firstname' => $this->request->getPost('firstname'),
-            'lastname' => $this->request->getPost('lastname'),
-            'status' => $status,
+            'lastname'  => $this->request->getPost('lastname'),
+            'status'    => $status,
         ];
 
-        if (!$authorize->inGroup($this->request->getPost('role'), $user->id)) {
+        if (! $authorize->inGroup($this->request->getPost('role'), $user->id)) {
             $db = Database::connect();
             $db->table('auth_groups_users')->where('user_id', $user->id)->delete();
-            
+
             $authorize->addUserToGroup($user->id, $this->request->getPost('role'));
-        
-            
         }
 
-        if (!$model->update($id, $data)) {
+        if (! $model->update($id, $data)) {
             return redirect()->back()->withInput()->with('errors', $model->errors());
         }
 
@@ -88,11 +87,12 @@ class UserSector extends BaseController
     public function delete($id)
     {
         $model = new UserModel();
-        $user = $model->find($id);
+        $user  = $model->find($id);
 
-        if (!$user) {
+        if (! $user) {
             throw UserNotFoundException::forUserID($id);
-        } elseif (user()->id == $id) {
+        }
+        if (user()->id === $id) {
             throw CurrentUserIsAdmin::forAdmin();
         }
 
@@ -106,11 +106,12 @@ class UserSector extends BaseController
     public function viewUser($id)
     {
         $model = new UserModel();
-        $user = $model->find($id);
+        $user  = $model->find($id);
 
-        if (!$user) {
+        if (! $user) {
             throw UserNotFoundException::forUserID($id);
-        } elseif (user()->id == $id) {
+        }
+        if (user()->id === $id) {
             throw CurrentUserIsAdmin::forAdmin();
         }
 
