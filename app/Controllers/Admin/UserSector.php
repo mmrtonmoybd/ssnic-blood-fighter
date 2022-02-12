@@ -122,11 +122,11 @@ class UserSector extends BaseController
 
     public function adminUsers()
     {
-        $model = new UserModel();
+        $model  = new UserModel();
         $admins = $model->select('users.*')
-        ->join('auth_groups_users AS agu', 'agu.user_id=users.id')
-        ->join('auth_groups AS ag', 'ag.id=agu.group_id')
-        ->where('ag.name', 'admin')->findAll();
+            ->join('auth_groups_users AS agu', 'agu.user_id=users.id')
+            ->join('auth_groups AS ag', 'ag.id=agu.group_id')
+            ->where('ag.name', 'admin')->findAll();
 
         return view('Admin/adminusers', [
             'users' => $admins,
@@ -135,7 +135,7 @@ class UserSector extends BaseController
 
     public function banList()
     {
-        $model = new UserModel();
+        $model    = new UserModel();
         $banusers = $model->where('status', 'banned')->findAll();
 
         return view('Admin/banusers', [

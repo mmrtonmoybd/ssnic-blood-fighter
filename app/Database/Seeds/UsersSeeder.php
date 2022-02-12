@@ -24,8 +24,8 @@ class UsersSeeder extends Seeder
                 'haddress'      => 'Mymensingh',
                 'password_hash' => Password::hash('224466@@'),
                 'active'        => 1,
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
             ],
             [
                 'email'         => 'contributor@gmail.com',
@@ -40,8 +40,8 @@ class UsersSeeder extends Seeder
                 'haddress'      => 'Mymensingh',
                 'password_hash' => Password::hash('224466@@'),
                 'active'        => 1,
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
             ],
             [
                 'email'         => 'donor@gmail.com',
@@ -56,8 +56,8 @@ class UsersSeeder extends Seeder
                 'haddress'      => 'Mymensingh',
                 'password_hash' => Password::hash('224466@@'),
                 'active'        => 1,
-                'created_at' => date("Y-m-d H:i:s"),
-                'updated_at' => date("Y-m-d H:i:s"),
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
             ],
         ];
 

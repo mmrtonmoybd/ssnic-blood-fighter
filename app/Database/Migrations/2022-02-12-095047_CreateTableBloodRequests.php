@@ -10,54 +10,54 @@ class CreateTableBloodRequests extends Migration
     {
         $data = [
             'id' => [
-                'type' => 'int', 
-                'constraint' => 11, 
-                'unsigned' => true, 
-                'auto_increment' => true
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => true,
+                'auto_increment' => true,
             ],
             'bgroup' => [
-                'type' => 'varchar', 
-                'constraint' => 6
+                'type'       => 'varchar',
+                'constraint' => 6,
             ],
             'user_id' => [
-                'type' => 'int', 
-                'constraint' => 11, 
-                'unsigned' => true
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'donateplace' => [
-'type' => 'varchar',
-                'constraint' => 255
+                'type'       => 'varchar',
+                'constraint' => 255,
             ],
             'donor' => [
-                'type' => 'int', 
-                'constraint' => 11, 
-                'unsigned' => true
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'manage_by' => [
-               'type' => 'int', 
-                'constraint' => 11, 
-                'unsigned' => true
+                'type'       => 'int',
+                'constraint' => 11,
+                'unsigned'   => true,
             ],
             'refarence' => [
-                'type' => 'varchar',
-                'constraint' => 255
+                'type'       => 'varchar',
+                'constraint' => 255,
             ],
-            'status'           => [
-                'type' => 'int', 
-                'constraint' => 1, 
-                'null' => true
-        ],
+            'status' => [
+                'type'       => 'int',
+                'constraint' => 1,
+                'null'       => true,
+            ],
             'details' => [
-                'type' => 'text'
+                'type' => 'text',
             ],
-            'created_at'       => [
-                'type' => 'datetime', 'null' => true
+            'created_at' => [
+                'type' => 'datetime', 'null' => true,
             ],
-            'updated_at'       => [
-                'type' => 'datetime', 'null' => true
+            'updated_at' => [
+                'type' => 'datetime', 'null' => true,
             ],
-            'deleted_at'       => [
-                'type' => 'datetime', 'null' => true
+            'deleted_at' => [
+                'type' => 'datetime', 'null' => true,
             ],
         ];
 
@@ -66,7 +66,7 @@ class CreateTableBloodRequests extends Migration
         $this->forge->addForeignKey('user_id', 'users', 'id', '', 'CASCADE');
         $this->forge->addForeignKey('donor', 'users', 'id', '', 'CASCADE');
         $this->forge->addForeignKey('manage_by', 'users', 'id', '', 'CASCADE');
-        
+
         $this->forge->createTable('blood_requests', true);
     }
 
