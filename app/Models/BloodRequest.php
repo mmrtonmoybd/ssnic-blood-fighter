@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class AuthGroup extends Model
+class BloodRequest extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'authgroups';
+    protected $table            = 'blood_requests';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

@@ -15,7 +15,7 @@ class UserSector extends BaseController
         $users = new UserModel();
 
         return view('Admin/users', [
-            'users' => $users->findAll(),
+            'users' => $users->where('status', null)->findAll(),
         ]);
     }
 
@@ -117,6 +117,29 @@ class UserSector extends BaseController
 
         return view('Admin/userview', [
             'user' => $user,
+        ]);
+    }
+
+    public function adminUsers()
+    {
+        $model = new UserModel();
+        $admins = $model->select('users.*')
+        ->join('auth_groups_users AS agu', 'agu.user_id=users.id')
+        ->join('auth_groups AS ag', 'ag.id=agu.group_id')
+        ->where('ag.name', 'admin')->findAll();
+
+        return view('Admin/adminusers', [
+            'users' => $admins,
+        ]);
+    }
+
+    public function banList()
+    {
+        $model = new UserModel();
+        $banusers = $model->where('status', 'banned')->findAll();
+
+        return view('Admin/banusers', [
+            'users' => $banusers,
         ]);
     }
 }

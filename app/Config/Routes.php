@@ -61,6 +61,10 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
     $routes->get('users/delete/(:num)', 'UserSector::delete/$1', ['as' => 'admin.users.delete']);
 
     $routes->get('users/view/(:num)', 'UserSector::viewUser/$1', ['as' => 'admin.users.view']);
+
+    $routes->get('users/admin', 'UserSector::adminUsers', ['as' => 'admin.users.admin']);
+
+    $routes->get('users/banlist', 'UserSector::banList', ['as' => 'admin.users.banlist']);
 });
 
 /*
