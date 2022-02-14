@@ -25,19 +25,17 @@
                               <?php
 
                               function getLastdonhuman($date)
-                      {
-                        $human = $date;
-                        if (!is_null($date)) {
-                         // use Time;
-                          //$time = \CodeIgniter\I18n\Time();
-                          $get = \CodeIgniter\I18n\Time::parse($date);
-                          $human = $get->humanize();
-                          return $human;
-                        }
-                        echo 'Never donate yet';
-                      }
+                              {
+                                  $human = $date;
+                                  if (null !== $date) {
+                                      // use Time;
+                                      //$time = \CodeIgniter\I18n\Time();
+                                      $get = \CodeIgniter\I18n\Time::parse($date);
 
-
+                                      return $get->humanize();
+                                  }
+                                  echo 'Never donate yet';
+                              }
 
                               ?>
                               নামঃ <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?><br>

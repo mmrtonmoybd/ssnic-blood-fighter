@@ -28,9 +28,10 @@ class UserSector extends BaseController
         $authorize = service('authorization');
 
         if (! $user) {
-             throw UserNotFoundException::forUserID($id);
-        } elseif (user()->id === $id) {
-             throw new CurrentUserIsAdmin('Admin can not update or delete own account');
+            throw UserNotFoundException::forUserID($id);
+        }
+        if (user()->id === $id) {
+            throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
         return view('Admin/userupdate', [
@@ -63,7 +64,7 @@ class UserSector extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $status = ($this->request->getPost('status') === 'banned') ? 'banned' : NULL;
+        $status = ($this->request->getPost('status') === 'banned') ? 'banned' : null;
 
         $data = [
             'firstname' => $this->request->getPost('firstname'),
@@ -146,12 +147,12 @@ class UserSector extends BaseController
 
     public function avilableDonors()
     {
-        $model = new UserModel();
-        $date = Time::parse('90 days ago');
+        $model     = new UserModel();
+        $date      = Time::parse('90 days ago');
         $beforeday = $date->toDateString();
 
         $getdonors = $model->where('lastdonate <= ', $beforeday)
-        ->where('status', null)->findAll();
+            ->where('status', null)->findAll();
 
         return view('Admin/activedonors', [
             'users' => $getdonors,

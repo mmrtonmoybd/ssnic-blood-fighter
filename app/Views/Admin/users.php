@@ -63,15 +63,16 @@
 
                       function getLastdonhuman($date)
                       {
-                        $human = $date;
-                        if (!is_null($date)) {
-                         // use Time;
-                          //$time = \CodeIgniter\I18n\Time();
-                          $get = \CodeIgniter\I18n\Time::parse($date);
-                          $human = $get->humanize();
+                          $human = $date;
+                          if (null !== $date) {
+                              // use Time;
+                              //$time = \CodeIgniter\I18n\Time();
+                              $get = \CodeIgniter\I18n\Time::parse($date);
+
+                              return $get->humanize();
+                          }
+
                           return $human;
-                        }
-                        return $human;
                       }
                       ?>
                       <?php foreach ($users as $user) { ?>
