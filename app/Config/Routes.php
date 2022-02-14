@@ -33,6 +33,8 @@ $routes->setAutoRoute(false);
 // route since we don't have to scan directories.
 $routes->get('/', 'Frontend\Home::index');
 
+$routes->get('test', 'Test::index');
+
 // Frontend Router
 
 $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Frontend'], static function ($routes) {
@@ -65,6 +67,8 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
     $routes->get('users/admin', 'UserSector::adminUsers', ['as' => 'admin.users.admin']);
 
     $routes->get('users/banlist', 'UserSector::banList', ['as' => 'admin.users.banlist']);
+
+    $routes->get('users/activedonors', 'UserSector::avilableDonors', ['as' => 'admin.users.activedonors']);
 });
 
 /*

@@ -60,6 +60,19 @@
 
                           return '<p class="btn btn-success">Unban</p>';
                       }
+
+                      function getLastdonhuman($date)
+                      {
+                        $human = $date;
+                        if (!is_null($date)) {
+                         // use Time;
+                          //$time = \CodeIgniter\I18n\Time();
+                          $get = \CodeIgniter\I18n\Time::parse($date);
+                          $human = $get->humanize();
+                          return $human;
+                        }
+                        return $human;
+                      }
                       ?>
                       <?php foreach ($users as $user) { ?>
                       <tr>
@@ -67,7 +80,7 @@
                       <td><?= esc(trim(trim($user->firstname) . ' ' . trim($user->lastname))) ?></td>
                       <td><?= esc($user->bgroup) ?></td>
                       <td><?= esc($user->email) ?></td>
-                      <td><?= (null !== $user->lastdonate) ? $user->lastdonate : $user->lastdonate ?></td>
+                      <td><?= esc(getLastdonhuman($user->lastdonate)) ?></td>
                       <td><?= esc($user->phonenumber) ?></td>
                       <td><?= esc($user->haddress) ?></td>
                       <td><?= getRole($user->id) ?></td>

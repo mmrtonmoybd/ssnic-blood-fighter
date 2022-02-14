@@ -24,15 +24,20 @@
                               <br>
                               <?php
 
-function getLastdonate()
-{
-    $lastdon = user()->lastdonate;
+                              function getLastdonhuman($date)
+                      {
+                        $human = $date;
+                        if (!is_null($date)) {
+                         // use Time;
+                          //$time = \CodeIgniter\I18n\Time();
+                          $get = \CodeIgniter\I18n\Time::parse($date);
+                          $human = $get->humanize();
+                          return $human;
+                        }
+                        echo 'Never donate yet';
+                      }
 
-    if (null !== $lastdon) {
-        return $lastdon;
-    }
-    echo 'Never donate yet';
-}
+
 
                               ?>
                               নামঃ <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?><br>
@@ -46,7 +51,7 @@ function getLastdonate()
                               <!----
                                  <a style="color:blue;"> </a>
                                  -->
-                              সর্বশেষ রক্তদানের তারিখঃ  <?= esc(getLastdonate()) ?> <br>
+                              সর্বশেষ রক্তদানের তারিখঃ  <?= esc(getLastdonhuman(user()->lastdonate)) ?> <br>
                               লিঙ্গগত বৈশিষ্টঃ   <?= esc(user()->gender) ?><br>
                            </div>
                         </div>

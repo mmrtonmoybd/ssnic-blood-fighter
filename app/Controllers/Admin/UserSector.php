@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Exceptions\CurrentUserIsAdmin;
 use App\Models\UserModel;
+use CodeIgniter\I18n\Time;
 use Config\Database;
 use Myth\Auth\Exceptions\UserNotFoundException;
 
@@ -25,11 +26,11 @@ class UserSector extends BaseController
         $user  = $model->find($id);
 
         $authorize = service('authorization');
-        // var_dump($id);
+
         if (! $user) {
-            // throw UserNotFoundException::forUserID($id);
+             throw UserNotFoundException::forUserID($id);
         } elseif (user()->id === $id) {
-            // throw CurrentUserIsAdmin::forAdmin();
+             throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
         return view('Admin/userupdate', [
@@ -48,7 +49,7 @@ class UserSector extends BaseController
             throw UserNotFoundException::forUserID($id);
         }
         if (user()->id === $id) {
-            throw CurrentUserIsAdmin::forAdmin();
+            throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
         $rules = [
@@ -62,7 +63,7 @@ class UserSector extends BaseController
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        $status = ($this->request->getPost('status') === 'banned') ? 'banned' : '';
+        $status = ($this->request->getPost('status') === 'banned') ? 'banned' : NULL;
 
         $data = [
             'firstname' => $this->request->getPost('firstname'),
@@ -93,7 +94,7 @@ class UserSector extends BaseController
             throw UserNotFoundException::forUserID($id);
         }
         if (user()->id === $id) {
-            throw CurrentUserIsAdmin::forAdmin();
+            throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
         if ($model->delete($id)) {
@@ -112,7 +113,7 @@ class UserSector extends BaseController
             throw UserNotFoundException::forUserID($id);
         }
         if (user()->id === $id) {
-            throw CurrentUserIsAdmin::forAdmin();
+            throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
         return view('Admin/userview', [
@@ -140,6 +141,20 @@ class UserSector extends BaseController
 
         return view('Admin/banusers', [
             'users' => $banusers,
+        ]);
+    }
+
+    public function avilableDonors()
+    {
+        $model = new UserModel();
+        $date = Time::parse('90 days ago');
+        $beforeday = $date->toDateString();
+
+        $getdonors = $model->where('lastdonate <= ', $beforeday)
+        ->where('status', null)->findAll();
+
+        return view('Admin/activedonors', [
+            'users' => $getdonors,
         ]);
     }
 }

@@ -2,11 +2,11 @@
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
-          <h1><i class="fa fa-newspaper-o"></i> All ban users</h1>
+          <h1><i class="fa fa-newspaper-o"></i> All active donors</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item active">All ban users</li>
+          <li class="breadcrumb-item active">All active donors</li>
         </ul>
       </div>
 
@@ -14,7 +14,7 @@
         <div class="col-md-12">
           <div class="tile">
              <div class="tile-title-w-btn">
-              <h3 class="title">All ban users</h3>
+              <h3 class="title">All active donors</h3>
             </div>
             <div class="tile-body">
               <?= view('App\Admin\Main\_message') ?>
