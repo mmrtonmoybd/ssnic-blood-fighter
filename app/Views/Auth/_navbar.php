@@ -27,7 +27,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= route_to('bloodrequest') ?>">Add blood req</a>
             </li>
-            <?php  } ?>
+            <?php } ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
             </li>

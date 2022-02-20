@@ -32,13 +32,13 @@ class CreateTableBloodRequests extends Migration
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null' => true,
+                'null'       => true,
             ],
             'manage_by' => [
                 'type'       => 'int',
                 'constraint' => 11,
                 'unsigned'   => true,
-                'null' => true,
+                'null'       => true,
             ],
             'refarence' => [
                 'type'       => 'varchar',
