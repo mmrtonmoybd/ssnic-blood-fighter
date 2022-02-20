@@ -48,6 +48,11 @@ $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Fro
 
     $routes->get('lastblooddonate', 'Profile::showLastdon', ['as' => 'lastDonup']);
     $routes->post('lastblooddonate', 'Profile::lastDonup');
+
+    $routes->group('', ['filter' => 'role:admin,contributor', 'namespace' => 'App\Controllers\Frontend'], static function ($routes) {
+        $routes->get('bloodrequest', 'Profile::showBloodRequest', ['as' => 'bloodrequest']);
+        $routes->post('bloodrequest', 'Profile::attempBloodRequest');
+    });
 });
 
 // Admin Router

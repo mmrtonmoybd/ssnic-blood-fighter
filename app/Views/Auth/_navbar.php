@@ -20,7 +20,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= route_to('admin.dashboard') ?>">Admin Panel</a>
             </li>
-            <?php } ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to('bloodrequest') ?>">Add blood req</a>
+            </li>
+            <?php } elseif ($authorization->inGroup('contributor', $authenticate->id())) { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to('bloodrequest') ?>">Add blood req</a>
+            </li>
+            <?php  } ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('logout') ?>">Logout</a>
             </li>

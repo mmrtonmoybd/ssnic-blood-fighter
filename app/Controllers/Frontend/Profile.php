@@ -4,6 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\BloodRequest;
 
 class Profile extends BaseController
 {
@@ -130,5 +131,42 @@ class Profile extends BaseController
         }
 
         return redirect('dashboard')->with('message', 'Last blood donation update successfull');
+    }
+
+    public function showBloodRequest()
+    {
+        return view('frontend/bloodrequest', [
+            'role' => $this->getRole(),
+        ]);
+    }
+
+    public function attempBloodRequest()
+    {
+        $rules = [
+            'bgroup' => 'required|in_list[A+,B+,AB+,O+,O-,A-,B-,AB-]',
+            'donateplace' => 'required|string|max_length[255]',
+            'refarence' => 'required|string|max_length[255]',
+            'details' => 'required|string',
+        ];
+
+        if (! $this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $model = new BloodRequest();
+
+        $data = [
+            'bgroup' => $this->request->getPost('bgroup'),
+            'donateplace' => $this->request->getPost('donateplace'),
+            'refarence' => $this->request->getPost('refarence'),
+            'details' => $this->request->getPost('details'),
+            'user_id' => user()->id
+        ];
+
+        if (!$model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $model->errors());
+        }
+
+        return redirect('dashboard')->with('message', 'Blood request added successfull');
     }
 }
