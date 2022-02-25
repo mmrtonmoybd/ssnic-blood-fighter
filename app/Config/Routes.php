@@ -74,6 +74,12 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
     $routes->get('users/banlist', 'UserSector::banList', ['as' => 'admin.users.banlist']);
 
     $routes->get('users/activedonors', 'UserSector::avilableDonors', ['as' => 'admin.users.activedonors']);
+
+    $routes->get('blood/request', 'BloodRequestVontroller::index', ['as' => 'admin.blood.request']);
+
+    $routes->get('blood/request/update/(:num)', 'BloodRequestVontroller::updateShow/$1', ['as' => 'admin.blood.request.update']);
+    $routes->post('blood/request/update/(:num)', 'BloodRequestVontroller::update/$1');
+
 });
 
 /*
