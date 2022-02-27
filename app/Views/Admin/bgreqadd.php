@@ -95,9 +95,9 @@
                         <div class="form-group">
                             <label for="email">Status</label>
                             <select name="status"  class="form-control <?php if (session('errors.status')) : ?>is-invalid<?php endif ?>" required>
-                                <option  value="false" <?php (old('status') === 'false' ) ? print('selected') : '' ?>>Not managed</option>
-                                       <option  value="true" <?php (old('status') === 'true' ) ? print('selected') : '' ?>>Managed</option>
-                                       
+                                <option  value="false" <?php (old('status') === 'false') ? print('selected') : '' ?>>Not managed</option>
+                                       <option  value="true" <?php (old('status') === 'true') ? print('selected') : '' ?>>Managed</option>
+
                             </select>
                         </div>
 

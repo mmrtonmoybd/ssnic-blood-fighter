@@ -27,13 +27,12 @@
                               Blood group: <?= esc($bgreq->bgroup) ?> <br>
                               Donation place: <?= esc($bgreq->donateplace) ?> <br>
                               Refarence: <?= esc($bgreq->refarence) ?> <br>
-                              Status: <?= ($bgreq->status === true) ? "Managed"  : "Not managed" ?> <br>
+                              Status: <?= ($bgreq->status === true) ? 'Managed' : 'Not managed' ?> <br>
                               Requested at: <?= esc($bgreq->created_at) ?> <br>
 
                               Deatail: <br>
-                              <p><?php 
-                              $typography = \Config\Services::typography();
-                              $string = $typography->autoTypography($bgreq->details);
+                              <p><?php $typography = \Config\Services::typography();
+                              $string              = $typography->autoTypography($bgreq->details);
                               echo $string; ?></p>
             </div>
           </div>

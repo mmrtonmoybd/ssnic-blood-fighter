@@ -88,8 +88,8 @@ class BloodRequestVontroller extends BaseController
             ->where('ag.name', 'contributor')->findAll();
 
         return view('Admin/bgreqadd', [
-            'users'    => $usersa,
-            'cusers'   => $usersc,
+            'users'  => $usersa,
+            'cusers' => $usersc,
         ]);
     }
 
@@ -117,9 +117,9 @@ class BloodRequestVontroller extends BaseController
             'refarence'   => $this->request->getPost('refarence'),
             'details'     => $this->request->getPost('details'),
             'user_id'     => user()->id,
-            'donor' => $this->request->getPost('donor'),
-            'manage_by' => $this->request->getPost('manage'),
-            'status' => $this->request->getPost('status')
+            'donor'       => $this->request->getPost('donor'),
+            'manage_by'   => $this->request->getPost('manage'),
+            'status'      => $this->request->getPost('status'),
         ];
 
         if (! $model->insert($data)) {
@@ -132,8 +132,8 @@ class BloodRequestVontroller extends BaseController
     public function delete($id)
     {
         $model = new BloodRequest();
-        
-         if ($model->delete($id)) {
+
+        if ($model->delete($id)) {
             return redirect()->route('admin.blood.request')->with('message', 'Blood request delete successfull');
         }
 
@@ -149,8 +149,8 @@ class BloodRequestVontroller extends BaseController
             ->join('users', 'users.id=blood_requests.user_id')
             ->find($id);
 
-            return view('Admin/bgview', [
-                'bgreq' => $get,
-            ]);
+        return view('Admin/bgview', [
+            'bgreq' => $get,
+        ]);
     }
 }

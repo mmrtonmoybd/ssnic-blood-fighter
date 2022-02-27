@@ -24,34 +24,32 @@
                             <label for="firstname">Blood group</label>
                                    <select name="bgroup"  class="form-control <?php
 
-                use phpDocumentor\Reflection\Types\Null_;
-
  if (session('errors.bgroup')) : ?>is-invalid<?php endif ?>" required>
                                        <option>Blood Group</option>
                                        <option  value="A+" <?php if (old('bgroup') === 'A+' || $bloodreq->bgroup === 'A+') {
-    echo 'selected';
-} ?>>A+</option>
+     echo 'selected';
+ } ?>>A+</option>
                                        <option  value="B+" <?php if (old('bgroup') === 'B+' || $bloodreq->bgroup === 'B+') {
-    echo 'selected';
-} ?>>B+</option>
+     echo 'selected';
+ } ?>>B+</option>
                                        <option  value="AB+" <?php if (old('bgroup') === 'AB+' || $bloodreq->bgroup === 'AB+') {
-    echo 'selected';
-} ?>>AB+</option>
+     echo 'selected';
+ } ?>>AB+</option>
                                        <option  value="O+" <?php if (old('bgroup') === 'O+' || $bloodreq->bgroup === 'O+') {
-    echo 'selected';
-} ?>>O+</option>
+     echo 'selected';
+ } ?>>O+</option>
                                        <option  value="O-" <?php if (old('bgroup') === 'O-' || $bloodreq->bgroup === 'O-') {
-    echo 'selected';
-} ?>>O-</option>
+     echo 'selected';
+ } ?>>O-</option>
                                        <option  value="A-" <?php if (old('bgroup') === 'A-' || $bloodreq->bgroup === 'A-') {
-    echo 'selected';
-} ?>>A-</option>
+     echo 'selected';
+ } ?>>A-</option>
                                        <option  value="B-"<?php if (old('bgroup') === 'B-' || $bloodreq->bgroup === 'B-') {
-    echo 'selected';
-} ?>>B-</option>
+     echo 'selected';
+ } ?>>B-</option>
                                        <option  value="AB-" <?php if (old('bgroup') === 'AB-' || $bloodreq->bgroup === 'AB-') {
-    echo 'selected';
-} ?>>AB-</option>
+     echo 'selected';
+ } ?>>AB-</option>
                             </select>
 
                         </div>
@@ -72,23 +70,23 @@
                       <div class="form-group">
                             <label for="email">Donor</label>
                             <select name="donor"  class="form-control <?php if (session('errors.donor')) : ?>is-invalid<?php endif ?>" required>
-                                <option  value="NULL" <?php (old('donor') === NULL) ? print('selected') : '' ?>>None</option>
+                                <option  value="NULL" <?php (old('donor') === null) ? print('selected') : '' ?>>None</option>
                                 <?php foreach ($users as $user1) {
-    ?>
+     ?>
                                        <option  value="<?= $user1->id ?>" <?php (($bloodreq->donor === $user1->id)) ? print('selected') : '' ?>><?= $user1->fullname ?></option>
                                        <?php
-} ?>
+ } ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="email">Managed by</label>
                             <select name="manage"  class="form-control <?php if (session('errors.manage')) : ?>is-invalid<?php endif ?>" required>
-                                <option  value="NULL" <?php (old('manage') === NULL) ? print('selected') : '' ?>>None</option>
+                                <option  value="NULL" <?php (old('manage') === null) ? print('selected') : '' ?>>None</option>
                                 <?php foreach ($cusers as $user2) {
-        ?>
+     ?>
                                        <option  value="<?= $user2->id ?>" <?php (($bloodreq->manage_by === $user2->id)) ? print('selected') : '' ?>><?= $user2->fullname ?></option>
                                        <?php
-    } ?>
+ } ?>
                             </select>
                         </div>
                     <div class="form-group">
@@ -100,8 +98,8 @@
                             <label for="email">Status</label>
                             <select name="status"  class="form-control <?php if (session('errors.status')) : ?>is-invalid<?php endif ?>" required>
                               <option  value="false" <?php ($bloodreq->status === false) ? print('selected') : '' ?>>Not managed</option>
-                                       <option  value="true" <?php ( $bloodreq->status === true) ? print('selected') : '' ?>>Managed</option>
-                                       
+                                       <option  value="true" <?php ($bloodreq->status === true) ? print('selected') : '' ?>>Managed</option>
+
                             </select>
                         </div>
 
