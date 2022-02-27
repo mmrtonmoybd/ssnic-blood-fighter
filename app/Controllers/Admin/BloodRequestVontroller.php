@@ -79,6 +79,78 @@ class BloodRequestVontroller extends BaseController
 
     public function addShow()
     {
+        $umodel = new UserModel();
+        $usersa = $umodel->select('CONCAT(firstname, " ", lastname) AS fullname, id')->findAll();
 
+        $usersc = $umodel->select('CONCAT(firstname, " ", lastname) AS fullname, users.id AS id')
+            ->join('auth_groups_users AS agu', 'agu.user_id=users.id')
+            ->join('auth_groups AS ag', 'agu.group_id=ag.id')
+            ->where('ag.name', 'contributor')->findAll();
+
+        return view('Admin/bgreqadd', [
+            'users'    => $usersa,
+            'cusers'   => $usersc,
+        ]);
+    }
+
+    public function add()
+    {
+        $rules = [
+            'bgroup'      => 'required|in_list[A+,B+,AB+,O+,O-,A-,B-,AB-]',
+            'donateplace' => 'required|string|max_length[255]',
+            'refarence'   => 'required|string|max_length[255]',
+            'donor'       => 'required',
+            'manage'      => 'required',
+            'details'     => 'required|string',
+            'status'      => 'required|in_list[true,false]',
+        ];
+
+        if (! $this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $model = new BloodRequest();
+
+        $data = [
+            'bgroup'      => $this->request->getPost('bgroup'),
+            'donateplace' => $this->request->getPost('donateplace'),
+            'refarence'   => $this->request->getPost('refarence'),
+            'details'     => $this->request->getPost('details'),
+            'user_id'     => user()->id,
+            'donor' => $this->request->getPost('donor'),
+            'manage_by' => $this->request->getPost('manage'),
+            'status' => $this->request->getPost('status')
+        ];
+
+        if (! $model->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $model->errors());
+        }
+
+        return redirect()->route('admin.blood.request')->with('message', 'Blood request added successfull');
+    }
+
+    public function delete($id)
+    {
+        $model = new BloodRequest();
+        
+         if ($model->delete($id)) {
+            return redirect()->route('admin.blood.request')->with('message', 'Blood request delete successfull');
+        }
+
+        return redirect()->route('admin.blood.request')->with('error', 'Blood request delete unsuccessfull');
+    }
+
+    public function show($id)
+    {
+        $model = new BloodRequest();
+        $get   = $model->select('blood_requests.*, CONCAT(users.firstname, " ", users.lastname) AS fullname,
+                              (SELECT CONCAT(usad.firstname, " ", usad.lastname) FROM users AS usad WHERE usad.id=blood_requests.donor) AS donorname,
+                              (SELECT CONCAT(usam.firstname, " ", usam.lastname) FROM users AS usam WHERE usam.id=blood_requests.manage_by) AS managername')
+            ->join('users', 'users.id=blood_requests.user_id')
+            ->find($id);
+
+            return view('Admin/bgview', [
+                'bgreq' => $get,
+            ]);
     }
 }

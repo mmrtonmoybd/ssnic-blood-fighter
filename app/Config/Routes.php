@@ -79,6 +79,13 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
 
     $routes->get('blood/request/update/(:num)', 'BloodRequestVontroller::updateShow/$1', ['as' => 'admin.blood.request.update']);
     $routes->post('blood/request/update/(:num)', 'BloodRequestVontroller::update/$1');
+
+    $routes->get('blood/request/add', 'BloodRequestVontroller::addShow', ['as' => 'admin.blood.request.add']);
+    $routes->post('blood/request/add', 'BloodRequestVontroller::add');
+
+    $routes->get('blood/request/delete/(:num)', 'BloodRequestVontroller::delete/$1', ['as' => 'admin.blood.request.delete']);
+
+    $routes->get('blood/request/show/(:num)', 'BloodRequestVontroller::show/$1', ['as' => 'admin.blood.request.show']);
 });
 
 /*
