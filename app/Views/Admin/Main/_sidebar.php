@@ -19,7 +19,7 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="<?= base_url(route_to('admin.blood.request')) ?>"><i class="icon fa fa-circle-o"></i> All request</a></li>
             <li><a class="treeview-item " href="<?= base_url(route_to('admin.blood.request.add')) ?>"><i class="icon fa fa-circle-o"></i> Blood request add</a></li>
-            
+
           </ul>
         </li>
       </ul>

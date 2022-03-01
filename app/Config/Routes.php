@@ -53,7 +53,6 @@ $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Fro
         $routes->get('bloodrequest', 'Profile::showBloodRequest', ['as' => 'bloodrequest']);
         $routes->post('bloodrequest', 'Profile::attempBloodRequest');
         $routes->get('manage', 'Profile::manage', ['as' => 'BloodManage']);
-        
     });
     $routes->get('donate', 'Profile::donate', ['as' => 'BloodDonate']);
 });

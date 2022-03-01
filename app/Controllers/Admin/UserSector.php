@@ -14,11 +14,11 @@ class UserSector extends BaseController
     public function index()
     {
         $users = new UserModel();
-        $get = $users
-               ->select('users.*,
+        $get   = $users
+            ->select('users.*,
                (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.donor) AS dcount,
                (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')
-               ->where('users.status', null)->findAll();
+            ->where('users.status', null)->findAll();
 
         return view('Admin/users', [
             'users' => $get,

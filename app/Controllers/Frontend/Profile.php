@@ -28,12 +28,12 @@ class Profile extends BaseController
         //$user = new User();
         //var_dump(user()->firstname);
 
-        $model = new BloodRequest();
+        $model  = new BloodRequest();
         $dcount = $model->where('donor', user()->id)->countAllResults();
         $mcount = $model->where('manage_by', user()->id)->countAllResults();
 
         return view('frontend/dashboard', [
-            'role' => $this->getRole(),
+            'role'   => $this->getRole(),
             'dcount' => $dcount,
             'mcount' => $mcount,
         ]);
@@ -179,14 +179,15 @@ class Profile extends BaseController
     public function manage()
     {
         $model = new BloodRequest();
-        $get = $model->select('blood_requests.*, 
+        $get   = $model->select('blood_requests.*,
                 (SELECT CONCAT(users.firstname, " ", users.lastname) FROM users WHERE users.id=blood_requests.donor) AS dname')
-               ->join('users', 'manage_by=users.id')
-               ->where('manage_by', user()->id)->where('blood_requests.status', 'true')
-               ->orderBy('blood_requests.id', 'desc')
-               ->findAll();
+            ->join('users', 'manage_by=users.id')
+            ->where('manage_by', user()->id)->where('blood_requests.status', 'true')
+            ->orderBy('blood_requests.id', 'desc')
+            ->findAll();
+
         return view('frontend/manage', [
-            'role' => $this->getRole(),
+            'role'  => $this->getRole(),
             'datas' => $get,
         ]);
     }
@@ -194,14 +195,15 @@ class Profile extends BaseController
     public function donate()
     {
         $model = new BloodRequest();
-        $get = $model->select('blood_requests.*, 
+        $get   = $model->select('blood_requests.*,
                 (SELECT CONCAT(users.firstname, " ", users.lastname) FROM users WHERE users.id=blood_requests.manage_by) AS mname')
-               ->join('users', 'donor=users.id')
-               ->where('donor', user()->id)->where('blood_requests.status', 'true')
-               ->orderBy('blood_requests.id', 'desc')
-               ->findAll();
+            ->join('users', 'donor=users.id')
+            ->where('donor', user()->id)->where('blood_requests.status', 'true')
+            ->orderBy('blood_requests.id', 'desc')
+            ->findAll();
+
         return view('frontend/donor', [
-            'role' => $this->getRole(),
+            'role'  => $this->getRole(),
             'datas' => $get,
         ]);
     }
