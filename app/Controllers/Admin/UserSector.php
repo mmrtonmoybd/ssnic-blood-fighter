@@ -14,9 +14,14 @@ class UserSector extends BaseController
     public function index()
     {
         $users = new UserModel();
+        $get = $users
+               ->select('users.*,
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.donor) AS dcount,
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')
+               ->where('users.status', null)->findAll();
 
         return view('Admin/users', [
-            'users' => $users->where('status', null)->findAll(),
+            'users' => $get,
         ]);
     }
 
@@ -138,7 +143,9 @@ class UserSector extends BaseController
     public function banList()
     {
         $model    = new UserModel();
-        $banusers = $model->where('status', 'banned')->findAll();
+        $banusers = $model->select('users.*,
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.donor) AS dcount,
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')->where('status', 'banned')->findAll();
 
         return view('Admin/banusers', [
             'users' => $banusers,
@@ -151,7 +158,9 @@ class UserSector extends BaseController
         $date      = Time::parse('90 days ago');
         $beforeday = $date->toDateString();
 
-        $getdonors = $model->where('lastdonate <= ', $beforeday)
+        $getdonors = $model->select('users.*,
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.donor) AS dcount,
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')->where('lastdonate <= ', $beforeday)
             ->where('status', null)->findAll();
 
         return view('Admin/activedonors', [

@@ -2,11 +2,11 @@
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
-          <h1><i class="fa fa-newspaper-o"></i> All active donors</h1>
+          <h1><i class="fa fa-newspaper-o"></i> All blood request</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item active">All active donors</li>
+          <li class="breadcrumb-item active">All blood request</li>
         </ul>
       </div>
 
@@ -14,7 +14,8 @@
         <div class="col-md-12">
           <div class="tile">
              <div class="tile-title-w-btn">
-              <h3 class="title">All active donors</h3>
+              <h3 class="title">All blood request</h3>
+              <p><a class="btn btn-primary icon-btn" href="<?= base_url(route_to('admin.blood.request.add')) ?>"><i class="fa fa-plus"></i> Add blood request</a></p>
             </div>
             <div class="tile-body">
               <?= view('App\Admin\Main\_message') ?>
@@ -77,9 +78,9 @@
                       <td><?= getLastdonhuman($bloodreq->created_at) ?></td>
                       <td>
                         <div class="btn-group">
-                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.view', 1)) ?>"><i class="fa fa-lg fa-eye"></i></a>
+                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.show', $bloodreq->id)) ?>"><i class="fa fa-lg fa-eye"></i></a>
                         <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.update', $bloodreq->id)) ?>"><i class="fa fa-lg fa-edit"></i></a>
-                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.users.delete', 1)) ?>"><i class="fa fa-lg fa-trash"></i></a>
+                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.delete', $bloodreq->id)) ?>"><i class="fa fa-lg fa-trash"></i></a>
                       </div>
                     </td>
                     </tr>

@@ -21,9 +21,11 @@
                         <?php if ($role === 'Admin' || $role === 'Contributor') {
         ?>
                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('bloodrequest') ?>"> <i class="fa fa-sign-out"></i> Blood request </a></div>
+                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('BloodManage') ?>"> <i class="fa fa-sign-out"></i> Blood managed </a></div>
+
                         <?php
     } ?>
-
+                        <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('BloodDonate') ?>"> <i class="fa fa-sign-out"></i> Blood donate </a></div>
                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= base_url('logout') ?>"> <i class="fa fa-sign-out"></i> লগ আউট </a></div>
                      </div>
                   </div>

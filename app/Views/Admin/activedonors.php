@@ -30,6 +30,8 @@
                       <th>Last donation</th>
                       <th>Phone number</th>
                       <th>Home address</th>
+                      <th>Total managed</th>
+                      <th>Total donated</th>
                       <th>Role</th>
                       <th>Status</th>
                       <th>Created At</th>
@@ -84,6 +86,8 @@
                       <td><?= esc(getLastdonhuman($user->lastdonate)) ?></td>
                       <td><?= esc($user->phonenumber) ?></td>
                       <td><?= esc($user->haddress) ?></td>
+                      <td><?= $user->mcount ?></td>
+                      <td><?= $user->dcount ?></td>
                       <td><?= getRole($user->id) ?></td>
                       <td><?= isBanned($user) ?></td>
                       <td><?= $user->created_at ?></td>

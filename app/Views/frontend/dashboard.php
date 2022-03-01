@@ -39,6 +39,8 @@
 
                               ?>
                               নামঃ <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?><br>
+                              Total managed : <?= (($role === 'Contributor') || ($role === 'Admin')) ? $mcount : '' ?><br>
+                              Total Donated : <?= $dcount ?><br>
                               ইমেইলঃ <?= esc(user()->email) ?> <br>
                               Username:  <?= esc(user()->username) ?> <br>
                               ফোন নাম্বারঃ <?= esc(user()->phonenumber) ?> <br>

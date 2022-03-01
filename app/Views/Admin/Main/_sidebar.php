@@ -15,6 +15,12 @@
             <li><a class="treeview-item " href="<?= base_url(route_to('admin.users.banlist')) ?>"><i class="icon fa fa-circle-o"></i> Ban users</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item" href="charts.html"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Charts</span></a></li>
+        <li class="treeview"><a class="app-menu__item <?= (url_is(route_to('admin.blood.request')) || url_is('blood/request/update/*') || url_is('blood/request/add/*') || url_is('blood/request/show/*')) ? 'active' : '' ?>" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa fa-hand-holding-medical"></i><span class="app-menu__label">Blood request</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="<?= base_url(route_to('admin.blood.request')) ?>"><i class="icon fa fa-circle-o"></i> All request</a></li>
+            <li><a class="treeview-item " href="<?= base_url(route_to('admin.blood.request.add')) ?>"><i class="icon fa fa-circle-o"></i> Blood request add</a></li>
+            
+          </ul>
+        </li>
       </ul>
     </aside>

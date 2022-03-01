@@ -2,12 +2,12 @@
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
-          <h1><i class="fa fa-edit"></i> Update user</h1>
+          <h1><i class="fa fa-edit"></i> Blood request add</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><a href=""><i class="fa fa-home fa-lg"></i></a></li>
           <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item"><a href="<?= base_url(route_to('admin.blood.request.add')) ?>">User update</a></li>
+          <li class="breadcrumb-item"><a href="<?= base_url(route_to('admin.blood.request.add')) ?>">Blood request add</a></li>
         </ul>
       </div>
 
