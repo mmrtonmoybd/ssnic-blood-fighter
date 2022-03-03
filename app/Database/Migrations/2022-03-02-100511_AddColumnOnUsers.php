@@ -10,9 +10,9 @@ class AddColumnOnUsers extends Migration
     {
         $data = [
             'city' => [
-              'type'       => 'VARCHAR',
-              'constraint' => 255,
-              'after'      => 'haddress',  
+                'type'       => 'VARCHAR',
+                'constraint' => 255,
+                'after'      => 'haddress',
             ],
         ];
 
@@ -21,6 +21,6 @@ class AddColumnOnUsers extends Migration
 
     public function down()
     {
-        //
+
     }
 }

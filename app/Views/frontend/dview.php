@@ -26,7 +26,6 @@
 
                                       return $get->humanize();
                                   }
-                              
                               }
 
                               ?>
@@ -36,13 +35,13 @@
                               Donor: <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?> <br>
                               Manager: <?= esc($data->manager) ?><br>
                               Date: <?= getLastdonhuman($data->created_at) ?> <br>
-                              Details: 
+                              Details:
                               <?php
-                              
+
                               use League\CommonMark\CommonMarkConverter;
 
 $converter = new CommonMarkConverter([
-    'html_input' => 'strip',
+    'html_input'         => 'strip',
     'allow_unsafe_links' => false,
 ]);
 

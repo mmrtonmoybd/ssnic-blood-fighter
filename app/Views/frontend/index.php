@@ -2,7 +2,7 @@
 <?= $this->section('main') ?>
 <!-- Jumbotron -->
     <div class="card card-image img-fluid"
-        style="background-image: url('<?= base_url("frontend/") ?>/images/blooddonate.jpg'); background-size: cover;">
+        style="background-image: url('<?= base_url('frontend/') ?>/images/blooddonate.jpg'); background-size: cover;">
         <div class="text-white text-center rgba-stylish-strong py-5 px-4">
             <div class="py-5">
 
@@ -14,7 +14,7 @@
             <?php } else { ?>
             <a href="<?= base_url(route_to('register')) ?>" class="btn btn-danger">JOIN WITH US <i class="fas fa-arrow-right"></i></a>
             <?php } ?>
-                
+
             </div>
         </div>
     </div>
@@ -183,7 +183,7 @@
                     <!--Card content-->
                     <div class="card-body px-lg-5 pt-0">
 
-                    
+
 
             <div class="pt-2">
                 <center><a href="<?= base_url(route_to('register')) ?>"><button type="button" class="btn btn-danger btn-rounded">BECOME A DONOR</button></a></center>
@@ -196,7 +196,7 @@
             </div>
         </div>
     </div>
-	
+
 
     <div class="container" id="container2">
         <!-- Jumbotron -->

@@ -35,9 +35,9 @@ class BloodRequestVontroller extends BaseController
             ->join('auth_groups AS ag', 'agu.group_id=ag.id')
             ->where('ag.name', 'contributor')->findAll();
 
-            if (is_null($get)) {
-                                 throw PageNotFoundException::forPageNotFound();
-                             }
+        if (null === $get) {
+            throw PageNotFoundException::forPageNotFound();
+        }
 
         return view('Admin/bloodrequp', [
             'bloodreq' => $get,
@@ -154,9 +154,9 @@ class BloodRequestVontroller extends BaseController
             ->join('users', 'users.id=blood_requests.user_id')
             ->find($id);
 
-            if (is_null($get)) {
-                                 throw PageNotFoundException::forPageNotFound();
-                             }
+        if (null === $get) {
+            throw PageNotFoundException::forPageNotFound();
+        }
 
         return view('Admin/bgview', [
             'bgreq' => $get,
