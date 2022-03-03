@@ -21,6 +21,5 @@ class AddColumnOnUsers extends Migration
 
     public function down()
     {
-
     }
 }
