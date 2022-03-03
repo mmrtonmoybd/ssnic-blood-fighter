@@ -1,4 +1,8 @@
 <?= $this->extend('App\Views\App\admin') ?>
+<?= $this->section('pageStyles') ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
@@ -89,7 +93,13 @@
                         </div>
                     <div class="form-group">
                             <label for="haddress">Details</label>
-                            <textarea type="text" class="form-control"  placeholder="Blood donation details" name="details"><?= old('details') ?></textarea>
+                            <textarea type="text" class="form-control" id="summernote" rows="5"  placeholder="Blood donation details" name="details"><?= old('details') ?></textarea>
+                             <script>
+               new SimpleMDE({
+		element: document.getElementById("summernote"),
+		spellChecker: false,
+	});
+</script>
                         </div>
 
                         <div class="form-group">

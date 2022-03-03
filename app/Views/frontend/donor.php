@@ -51,7 +51,7 @@
                       <td><?= $data->donateplace ?></td>
                       <td><?= $data->refarence ?></td>
                       <td><?= getLastdonhuman($data->created_at) ?></td>
-                      <td>View</td>
+                      <td><a href="<?= base_url(route_to('BloodDonateView', $data->id)) ?>">View</a></td>
                     </tr>
                     <?php } ?>
                   </tbody>

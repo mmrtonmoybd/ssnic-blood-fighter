@@ -56,7 +56,7 @@
 
                         <br>
 
-                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block"><?=lang('Auth.resetPassword')?></button>
+                        <button type="submit" style="color: white;" class="btn btn-block danger-color"><?=lang('Auth.resetPassword')?></button>
                     </form>
 
                 </div>

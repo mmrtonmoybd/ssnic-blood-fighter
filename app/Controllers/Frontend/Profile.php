@@ -5,6 +5,7 @@ namespace App\Controllers\Frontend;
 use App\Controllers\BaseController;
 use App\Models\BloodRequest;
 use App\Models\UserModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Profile extends BaseController
 {
@@ -57,6 +58,7 @@ class Profile extends BaseController
             'batch'       => 'required|max_length[70]|alpha_numeric_punct',
             'bgroup'      => 'required|in_list[A+,B+,AB+,O+,O-,A-,B-,AB-]',
             'haddress'    => 'required|string|max_length[255]',
+            'city' => 'required|in_list[Bagerhat,Bandarban,Barguna,Barisal,Bhola,Bogura,Brahmanbaria,Chandpur,Chattogram,Chuadanga,Coxs Bazar,Cumilla,Dhaka,Dinajpur,Faridpur,Feni,Gaibandha,Gazipur,Gopalganj,Habiganj,Jamalpur,Jashore,Jhalokati,Jhenaidah,Joypurhat,Khagrachhari,Khulna,Kishoreganj,Kurigram,Kushtia,Lakshmipur,Lalmonirhat,Madaripur,Magura,Manikganj,Meherpur,Moulvibazar,Munshiganj,Mymensingh,Naogaon,Narail,Narayanganj,Narsingdi,Natore,Nawabganj,Netrakona,Netrakona,Noakhali,Pabna,Panchagarh,Patuakhali,Pirojpur,Rajbari,Rajshahi,Rangamati,Rangpur,Satkhira,Shariatpur,Sherpur,Sirajganj,Sunamganj,Sylhet,Tangail,Thakurgaon]',
         ];
 
         $photo = $this->request->getFile('photo');
@@ -206,5 +208,39 @@ class Profile extends BaseController
             'role'  => $this->getRole(),
             'datas' => $get,
         ]);
+    }
+
+    public function dview($id)
+    {
+        $model = new BloodRequest();
+        $get = $model->select('blood_requests.*,
+                             (SELECT CONCAT(users.firstname, " ", users.lastname) FROM users WHERE users.id=blood_requests.manage_by) AS manager')
+                             ->find($id);
+
+                             if (is_null($get)) {
+                                 throw PageNotFoundException::forPageNotFound();
+                             }
+
+                             return view('frontend/dview', [
+                                 'data' => $get,
+                                 'role'  => $this->getRole(),
+                             ]);
+    }
+
+    public function mview($id)
+    {
+        $model = new BloodRequest();
+        $get = $model->select('blood_requests.*,
+                             (SELECT CONCAT(users.firstname, " ", users.lastname) FROM users WHERE users.id=blood_requests.donor) AS donor')
+                             ->find($id);
+
+                             if (is_null($get)) {
+                                 throw PageNotFoundException::forPageNotFound();
+                             }
+
+                             return view('frontend/mview', [
+                                 'data' => $get,
+                                 'role'  => $this->getRole(),
+                             ]);
     }
 }

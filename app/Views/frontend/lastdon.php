@@ -25,7 +25,7 @@
 
                         <br>
 
-                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block">Last blood donation update</button>
+                        <button type="submit" style="color: white;" class="btn btn-block danger-color">Last blood donation update</button>
                               </form>
                            </div>
                         </div>

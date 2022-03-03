@@ -1,4 +1,8 @@
 <?= $this->extend('App\Views\App\layout') ?>
+<?= $this->section('pageStyles') ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
@@ -45,12 +49,18 @@
 
                         <div class="form-group">
                             <label for="details">Details</label>
-                            <textarea type="text" name="details" class="form-control <?php if (session('errors.details')) : ?>is-invalid<?php endif ?>"  placeholder="Details" required><?= old('details') ?></textarea>
+                            <textarea type="text" name="details" id="summernote" rows="5" class="form-control <?php if (session('errors.details')) : ?>is-invalid<?php endif ?>"  placeholder="Details" required><?= old('details') ?></textarea>
+                              <script>
+               new SimpleMDE({
+		element: document.getElementById("summernote"),
+		spellChecker: false,
+	});
+</script>
                         </div>
 
                         <br>
 
-                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block">Add blood request</button>
+                        <button type="submit" style=" color: white;" class="btn btn-block danger-color">Add blood request</button>
                               </form>
                            </div>
                         </div>

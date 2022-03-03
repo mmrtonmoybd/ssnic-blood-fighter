@@ -30,7 +30,7 @@
 
                         <br>
 
-                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block">Password Change</button>
+                        <button type="submit" style="color: white;" class="btn btn-block danger-color">Password Change</button>
                               </form>
                            </div>
                         </div>

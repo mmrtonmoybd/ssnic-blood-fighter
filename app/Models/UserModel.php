@@ -16,7 +16,7 @@ class UserModel extends Model
     protected $allowedFields  = [
         'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
         'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at',
-        'firstname', 'lastname', 'phonenumber', 'gender', 'institute', 'batch', 'bgroup', 'haddress', 'lastdonate', 'pphoto',
+        'firstname', 'lastname', 'phonenumber', 'gender', 'institute', 'batch', 'bgroup', 'haddress', 'lastdonate', 'pphoto', 'city',
     ];
     protected $useTimestamps   = true;
     protected $validationRules = [
@@ -31,6 +31,7 @@ class UserModel extends Model
         'batch'         => 'required|max_length[70]|alpha_numeric_punct',
         'bgroup'        => 'required|in_list[A+,B+,AB+,O+,O-,A-,B-,AB-]',
         'haddress'      => 'required|string|max_length[255]',
+        'city' => 'required|in_list[Bagerhat,Bandarban,Barguna,Barisal,Bhola,Bogura,Brahmanbaria,Chandpur,Chattogram,Chuadanga,Coxs Bazar,Cumilla,Dhaka,Dinajpur,Faridpur,Feni,Gaibandha,Gazipur,Gopalganj,Habiganj,Jamalpur,Jashore,Jhalokati,Jhenaidah,Joypurhat,Khagrachhari,Khulna,Kishoreganj,Kurigram,Kushtia,Lakshmipur,Lalmonirhat,Madaripur,Magura,Manikganj,Meherpur,Moulvibazar,Munshiganj,Mymensingh,Naogaon,Narail,Narayanganj,Narsingdi,Natore,Nawabganj,Netrakona,Netrakona,Noakhali,Pabna,Panchagarh,Patuakhali,Pirojpur,Rajbari,Rajshahi,Rangamati,Rangpur,Satkhira,Shariatpur,Sherpur,Sirajganj,Sunamganj,Sylhet,Tangail,Thakurgaon]',
     ];
     protected $validationMessages = [];
     protected $skipValidation     = false;
@@ -128,6 +129,7 @@ class UserModel extends Model
             'batch'       => $request->getPost('batch'),
             'bgroup'      => $request->getPost('bgroup'),
             'haddress'    => $request->getPost('haddress'),
+            'city' => $request->getPost('city'),
         ];
         $photo = $request->getFile('photo');
         if ($request->getFile('photo')->isValid() && ! $photo->hasMoved()) {

@@ -27,7 +27,7 @@
 
                         <br>
 
-                        <button type="submit" style="background-color: #bb0a1e; color: white;" class="btn btn-block"><?=lang('Auth.sendInstructions')?></button>
+                        <button type="submit" style="color: white;" class="btn btn-block danger-color"><?=lang('Auth.sendInstructions')?></button>
                     </form>
 
                 </div>

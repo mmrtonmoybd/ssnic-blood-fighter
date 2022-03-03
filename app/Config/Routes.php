@@ -53,8 +53,10 @@ $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Fro
         $routes->get('bloodrequest', 'Profile::showBloodRequest', ['as' => 'bloodrequest']);
         $routes->post('bloodrequest', 'Profile::attempBloodRequest');
         $routes->get('manage', 'Profile::manage', ['as' => 'BloodManage']);
+        $routes->get('manageview/(:num)', 'Profile::mview/$1', ['as' => 'BloodManageView']);
     });
     $routes->get('donate', 'Profile::donate', ['as' => 'BloodDonate']);
+    $routes->get('donateview/(:num)', 'Profile::dview/$1', ['as' => 'BloodDonateView']);
 });
 
 // Admin Router

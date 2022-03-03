@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\BloodRequest;
 use App\Models\UserModel;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class BloodRequestVontroller extends BaseController
 {
@@ -33,6 +34,10 @@ class BloodRequestVontroller extends BaseController
             ->join('auth_groups_users AS agu', 'agu.user_id=users.id')
             ->join('auth_groups AS ag', 'agu.group_id=ag.id')
             ->where('ag.name', 'contributor')->findAll();
+
+            if (is_null($get)) {
+                                 throw PageNotFoundException::forPageNotFound();
+                             }
 
         return view('Admin/bloodrequp', [
             'bloodreq' => $get,
@@ -148,6 +153,10 @@ class BloodRequestVontroller extends BaseController
                               (SELECT CONCAT(usam.firstname, " ", usam.lastname) FROM users AS usam WHERE usam.id=blood_requests.manage_by) AS managername')
             ->join('users', 'users.id=blood_requests.user_id')
             ->find($id);
+
+            if (is_null($get)) {
+                                 throw PageNotFoundException::forPageNotFound();
+                             }
 
         return view('Admin/bgview', [
             'bgreq' => $get,

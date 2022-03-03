@@ -31,9 +31,17 @@
                               Requested at: <?= esc($bgreq->created_at) ?> <br>
 
                               Deatail: <br>
-                              <p><?php $typography = \Config\Services::typography();
-                              $string              = $typography->autoTypography($bgreq->details);
-                              echo $string; ?></p>
+                              <?php
+                              
+                              use League\CommonMark\CommonMarkConverter;
+
+$converter = new CommonMarkConverter([
+    'html_input' => 'strip',
+    'allow_unsafe_links' => false,
+]);
+
+echo $converter->convert($bgreq->details);
+?>
             </div>
           </div>
 

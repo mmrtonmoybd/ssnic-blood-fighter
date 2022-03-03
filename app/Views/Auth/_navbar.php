@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: #bb0a1e;">
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color">
     <a class="navbar-brand" href="#">SSNIC</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
             ?>
             <?php if (service('authentication')->check()) { ?>
             <li class="nav-item">
-                <a class="nav-link" href="<?= route_to('dashboard') ?>">Profile</a>
+                <a class="nav-link" href="<?= route_to('dashboard') ?>">Dashboard</a>
             </li>
             <?php if ($authorization->inGroup('admin', $authenticate->id())) { ?>
             <li class="nav-item">

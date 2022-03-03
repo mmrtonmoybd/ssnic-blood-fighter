@@ -29,7 +29,7 @@
                       <th>Email</th>
                       <th>Last donation</th>
                       <th>Phone number</th>
-                      <th>Home address</th>
+                      <th>Home city</th>
                       <th>Total managed</th>
                       <th>Total donated</th>
                       <th>Role</th>
@@ -85,7 +85,7 @@
                       <td><?= esc($user->email) ?></td>
                       <td><?= esc(getLastdonhuman($user->lastdonate)) ?></td>
                       <td><?= esc($user->phonenumber) ?></td>
-                      <td><?= esc($user->haddress) ?></td>
+                      <td><?= esc($user->city) ?></td>
                       <td><?= $user->mcount ?></td>
                       <td><?= $user->dcount ?></td>
                       <td><?= getRole($user->id) ?></td>

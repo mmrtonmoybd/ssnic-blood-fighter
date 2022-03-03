@@ -39,6 +39,7 @@ function getLastdonate($lastdon)
                               Username:  <?= esc($user->username) ?> <br>
                               ফোন নাম্বারঃ <?= esc($user->phonenumber) ?> <br>
                               বাসার ঠিকানা: <?= esc($user->haddress) ?> <br>
+                              Home city: <?= esc($user->city) ?><br>
                               শিক্ষা প্রতিষ্ঠান: <?= esc($user->institute) ?> <br>
                               ব্যাচ: <?= esc($user->batch) ?> <br>
                               রক্তের গ্রুপঃ <?= esc($user->bgroup) ?> <br>
