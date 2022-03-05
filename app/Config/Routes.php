@@ -35,6 +35,8 @@ $routes->get('/', 'Frontend\Home::index');
 
 $routes->get('test', 'Test::index');
 
+$routes->get('page/(:num)', 'Frontend\PageController::index/$1', ['as' => 'page']);
+
 // Frontend Router
 
 $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Frontend'], static function ($routes) {
@@ -90,6 +92,9 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
     $routes->get('blood/request/delete/(:num)', 'BloodRequestVontroller::delete/$1', ['as' => 'admin.blood.request.delete']);
 
     $routes->get('blood/request/show/(:num)', 'BloodRequestVontroller::show/$1', ['as' => 'admin.blood.request.show']);
+
+    $routes->get('pages', 'PageController::index', ['as' => 'admin.page.index']);
+    $routes->get('pages/update/(:num)', 'PageController::show/$1', ['as' => 'admin.page.update']);
 });
 
 /*

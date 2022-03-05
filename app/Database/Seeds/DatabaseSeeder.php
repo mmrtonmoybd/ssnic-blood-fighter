@@ -12,5 +12,8 @@ class DatabaseSeeder extends Seeder
         $seed = Database::seeder();
         $seed->call('AuthGroup');
         $seed->call('UsersSeeder');
+        $seed->call('PageSeeder');
+        $seed->call('SeetingSeeder');
+        $seed->call('SeoSeeder');
     }
 }
