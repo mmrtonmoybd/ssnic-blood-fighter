@@ -8,6 +8,6 @@ class SeetingController extends BaseController
 {
     public function index()
     {
-        //
+
     }
 }

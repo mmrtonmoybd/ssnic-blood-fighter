@@ -11,7 +11,7 @@ class PageController extends BaseController
     public function index()
     {
         $model = new Page();
-        $get = $model->findAll();
+        $get   = $model->findAll();
 
         return view('Admin/page', [
             'datas' => $get,
@@ -21,9 +21,9 @@ class PageController extends BaseController
     public function show($id)
     {
         $model = new Page();
-        $get = $model->find($id);
+        $get   = $model->find($id);
 
-        if (is_null($get)) {
+        if (null === $get) {
             throw PageNotFoundException::forPageNotFound();
         }
 
@@ -35,9 +35,9 @@ class PageController extends BaseController
     public function update($id)
     {
         $model = new Page();
-        $get = $model->find($id);
+        $get   = $model->find($id);
 
-        if (is_null($get)) {
+        if (null === $get) {
             throw PageNotFoundException::forPageNotFound();
         }
     }

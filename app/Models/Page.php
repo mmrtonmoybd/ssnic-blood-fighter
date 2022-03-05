@@ -15,7 +15,7 @@ class Page extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'slug', 'seot', 'seod', 'seok', 'pname', 'pcontent'
+        'slug', 'seot', 'seod', 'seok', 'pname', 'pcontent',
     ];
 
     // Dates

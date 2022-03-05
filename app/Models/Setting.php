@@ -15,7 +15,7 @@ class Setting extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'sname', 'sdetails'
+        'sname', 'sdetails',
     ];
 
     // Dates

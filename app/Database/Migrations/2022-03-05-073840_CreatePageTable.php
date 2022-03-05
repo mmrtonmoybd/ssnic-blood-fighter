@@ -16,29 +16,29 @@ class CreatePageTable extends Migration
                 'auto_increment' => true,
             ],
             'slug' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 150,
             ],
             'seot' => [
-                    'type' => 'varchar',
-                    'constraint' => 100,
-                ],
-                'seod' => [
-                    'type' => 'varchar',
-                    'constraint' => 180,
-                ],
-                'seok' => [
-                    'type' => 'varchar',
-                    'constraint' => 255,
-                ],
-                'pname' => [
-                    'type' => 'varchar',
-                    'constraint' => 250,
-                ],
-                'pcontent' => [
-                    'type' => 'text',
-                ],
-                'created_at' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'seod' => [
+                'type'       => 'varchar',
+                'constraint' => 180,
+            ],
+            'seok' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'pname' => [
+                'type'       => 'varchar',
+                'constraint' => 250,
+            ],
+            'pcontent' => [
+                'type' => 'text',
+            ],
+            'created_at' => [
                 'type' => 'datetime', 'null' => true,
             ],
             'updated_at' => [

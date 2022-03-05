@@ -16,12 +16,12 @@ class CreateSettingsTable extends Migration
                 'auto_increment' => true,
             ],
             'sname' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 255,
-                'unique' => true,
+                'unique'     => true,
             ],
             'sdetails' => [
-                'type' => 'text',
+                'type'       => 'text',
                 'constraint' => 450,
             ],
             'created_at' => [

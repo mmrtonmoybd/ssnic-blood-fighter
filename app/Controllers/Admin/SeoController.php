@@ -8,6 +8,6 @@ class SeoController extends BaseController
 {
     public function index()
     {
-        //
+
     }
 }

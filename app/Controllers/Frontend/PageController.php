@@ -9,10 +9,10 @@ class PageController extends BaseController
 {
     public function index($id)
     {
-       $model = new Page();
-        $get = $model->find($id);
+        $model = new Page();
+        $get   = $model->find($id);
 
-        if (is_null($get)) {
+        if (null === $get) {
             throw PageNotFoundException::forPageNotFound();
         }
 

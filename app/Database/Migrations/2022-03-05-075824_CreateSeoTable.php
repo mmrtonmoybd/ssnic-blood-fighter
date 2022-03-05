@@ -16,18 +16,18 @@ class CreateSeoTable extends Migration
                 'auto_increment' => true,
             ],
             'stitle' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 150,
             ],
             'sdetails' => [
-                'type' => 'varchar', 
+                'type'       => 'varchar',
                 'constraint' => 255,
             ],
             'skey' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 255,
             ],
-             'created_at' => [
+            'created_at' => [
                 'type' => 'datetime', 'null' => true,
             ],
             'updated_at' => [

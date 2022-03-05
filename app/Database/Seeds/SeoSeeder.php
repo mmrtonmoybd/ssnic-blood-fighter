@@ -10,24 +10,24 @@ class SeoSeeder extends Seeder
     {
         $datas = [
             [
-                'stitle' => 'home Title',
+                'stitle'   => 'home Title',
                 'sdetails' => 'home details',
-                'skey' => 'home, Title',
+                'skey'     => 'home, Title',
             ],
             [
-                'stitle' => 'Login title',
+                'stitle'   => 'Login title',
                 'sdetails' => 'login details',
-                'skey' => 'login, title',
+                'skey'     => 'login, title',
             ],
             [
-                'stitle' => 'Register title',
+                'stitle'   => 'Register title',
                 'sdetails' => 'register details',
-                'skey' => 'register, detakisl',
+                'skey'     => 'register, detakisl',
             ],
             [
-                'stitle' => 'forget password',
+                'stitle'   => 'forget password',
                 'sdetails' => 'forget password',
-                'skey' => 'forget, password',
+                'skey'     => 'forget, password',
             ],
         ];
 

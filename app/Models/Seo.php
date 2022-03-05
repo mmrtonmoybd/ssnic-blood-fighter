@@ -15,7 +15,7 @@ class Seo extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'stitle', 'sdetails', 'skey' 
+        'stitle', 'sdetails', 'skey',
     ];
 
     // Dates
