@@ -10,10 +10,10 @@ class UpdateSeoTable extends Migration
     {
         $data = [
             'sslug' => [
-                'type' => 'varchar',
+                'type'       => 'varchar',
                 'constraint' => 150,
-                'after' => 'id',
-                'unique' => true,
+                'after'      => 'id',
+                'unique'     => true,
             ],
         ];
 
@@ -22,6 +22,6 @@ class UpdateSeoTable extends Migration
 
     public function down()
     {
-        //
+
     }
 }

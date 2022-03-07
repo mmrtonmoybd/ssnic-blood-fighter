@@ -22,76 +22,76 @@
                 <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="phonenumber">Site name</label>
-                            <input type="text" class="form-control " placeholder="Site name" value="<?= old('siteName') ? old('siteName') : esc($setting->siteName) ?>" name="siteName">
+                            <input type="text" class="form-control " placeholder="Site name" value="<?= old('siteName') ?: esc($setting->siteName) ?>" name="siteName">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber">Site email </label>
-                            <input type="text" class="form-control " placeholder="Site email" value="<?= old('siteEmail') ? old('siteEmail') : esc($setting->siteEmail) ?>" name="siteEmail">
+                            <input type="text" class="form-control " placeholder="Site email" value="<?= old('siteEmail') ?: esc($setting->siteEmail) ?>" name="siteEmail">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber">Site phone </label>
-                            <input type="text" class="form-control " placeholder="Site phone" value="<?= old('sitePhone') ? old('sitePhone') : esc($setting->sitePhone) ?>" name="sitePhone">
+                            <input type="text" class="form-control " placeholder="Site phone" value="<?= old('sitePhone') ?: esc($setting->sitePhone) ?>" name="sitePhone">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                          <div class="form-group">
                             <label for="haddress"><?= $page->sslug ?> seo Decription</label>
-                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ? old('seod') : esc($page->sdetails) ?></textarea>
+                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ?: esc($page->sdetails) ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($setting->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
 
                         </div>
 

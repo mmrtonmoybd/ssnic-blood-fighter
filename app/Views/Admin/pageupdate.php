@@ -26,27 +26,27 @@
                 <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="phonenumber">Page name</label>
-                            <input type="text" class="form-control " placeholder="Page name" value="<?= old('pname') ? old('pname') : esc($page->pname) ?>" name="pname">
+                            <input type="text" class="form-control " placeholder="Page name" value="<?= old('pname') ?: esc($page->pname) ?>" name="pname">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber">Page seo title</label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($page->seot) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($page->seot) ?>" name="seot">
 
                         </div>
                          <div class="form-group">
                             <label for="haddress">Page seo Decription</label>
-                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ? old('seod') : esc($page->seod) ?></textarea>
+                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ?: esc($page->seod) ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="phonenumber">Page seo keyword</label>
-                            <input type="text" class="form-control " placeholder="Page keyword" name="seok" value="<?= old('seok') ? old('seok') : esc($page->seok) ?>">
+                            <input type="text" class="form-control " placeholder="Page keyword" name="seok" value="<?= old('seok') ?: esc($page->seok) ?>">
 
                         </div>
 
                     <div class="form-group">
                             <label for="haddress">Page content</label>
-                            <textarea type="text" class="form-control" id="summernote" rows="5" placeholder="Blood donation details" name="pcontent"><?= old('pcontent') ? old('pcontent') : esc($page->pcontent) ?></textarea>
+                            <textarea type="text" class="form-control" id="summernote" rows="5" placeholder="Blood donation details" name="pcontent"><?= old('pcontent') ?: esc($page->pcontent) ?></textarea>
                              <script>
                new SimpleMDE({
 		element: document.getElementById("summernote"),

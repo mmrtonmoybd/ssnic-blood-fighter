@@ -22,16 +22,16 @@
                 <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> seo title</label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ? old('seot') : esc($page->stitle) ?>" name="seot">
+                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($page->stitle) ?>" name="seot">
 
                         </div>
                          <div class="form-group">
                             <label for="haddress"><?= $page->sslug ?> seo Decription</label>
-                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ? old('seod') : esc($page->sdetails) ?></textarea>
+                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ?: esc($page->sdetails) ?></textarea>
                         </div>
                         <div class="form-group">
                             <label for="phonenumber"><?= $page->sslug ?> seo keyword</label>
-                            <input type="text" class="form-control " placeholder="Page keyword" name="seok" value="<?= old('seok') ? old('seok') : esc($page->skey) ?>">
+                            <input type="text" class="form-control " placeholder="Page keyword" name="seok" value="<?= old('seok') ?: esc($page->skey) ?>">
 
                         </div>
 

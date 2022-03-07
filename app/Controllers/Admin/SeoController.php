@@ -11,7 +11,7 @@ class SeoController extends BaseController
     public function index()
     {
         $model = new Seo();
-        $get = $model->findAll();
+        $get   = $model->findAll();
 
         return view('Admin/seo', [
             'datas' => $get,
@@ -21,7 +21,7 @@ class SeoController extends BaseController
     public function show($id)
     {
         $model = new Seo();
-        $get = $model->find($id);
+        $get   = $model->find($id);
 
         if (null === $get) {
             throw PageNotFoundException::forPageNotFound();
@@ -52,14 +52,15 @@ class SeoController extends BaseController
         }
 
         $data = [
-            'stitle' => $this->request->getPost('seot'),
+            'stitle'   => $this->request->getPost('seot'),
             'sdetails' => $this->request->getPost('seod'),
-            'skey' => $this->request->getPost('seok'),
+            'skey'     => $this->request->getPost('seok'),
         ];
 
-        if (!$model->update($id, $data)) {
-            return redirect()->back()->withInput()->with('errors', $model->errors()); 
+        if (! $model->update($id, $data)) {
+            return redirect()->back()->withInput()->with('errors', $model->errors());
         }
+
         return redirect()->route('admin.seo.index')->with('message', 'Seo update successfull');
     }
 }

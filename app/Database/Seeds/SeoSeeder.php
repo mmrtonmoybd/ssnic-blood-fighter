@@ -13,31 +13,31 @@ class SeoSeeder extends Seeder
                 'stitle'   => 'home Title',
                 'sdetails' => 'home details',
                 'skey'     => 'home, Title',
-                'sslug' => 'home'
+                'sslug'    => 'home',
             ],
             [
                 'stitle'   => 'Login title',
                 'sdetails' => 'login details',
                 'skey'     => 'login, title',
-                'sslug' => 'login',
+                'sslug'    => 'login',
             ],
             [
                 'stitle'   => 'Register title',
                 'sdetails' => 'register details',
                 'skey'     => 'register, detakisl',
-                'sslug' => 'register',
+                'sslug'    => 'register',
             ],
             [
                 'stitle'   => 'forget password',
                 'sdetails' => 'forget password',
                 'skey'     => 'forget, password',
-                'sslug' => 'forget',
+                'sslug'    => 'forget',
             ],
             [
                 'stitle'   => 'reset password',
                 'sdetails' => 'reset password',
                 'skey'     => 'reset, password',
-                'sslug' => 'reset',
+                'sslug'    => 'reset',
             ],
         ];
 

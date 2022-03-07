@@ -61,7 +61,7 @@
                         <div class="form-group">
                             <label for="lastname">Blood donation place</label>
                             <input type="text" class="form-control <?php if (session('errors.donateplace')) : ?>is-invalid<?php endif ?>"
-                                   name="donateplace" aria-describedby="lastnameHelp" placeholder="Blood donation place" value="<?= old('donateplace') ? old('donateplace') : esc($bloodreq->donateplace) ?>" required>
+                                   name="donateplace" aria-describedby="lastnameHelp" placeholder="Blood donation place" value="<?= old('donateplace') ?: esc($bloodreq->donateplace) ?>" required>
 
                         </div>
 
@@ -95,7 +95,7 @@
                         </div>
                     <div class="form-group">
                             <label for="haddress">Details</label>
-                            <textarea type="text" class="form-control" id="summernote" rows="5" placeholder="Blood donation details" name="details"><?= old('details') ? old('details') : esc($bloodreq->details) ?></textarea>
+                            <textarea type="text" class="form-control" id="summernote" rows="5" placeholder="Blood donation details" name="details"><?= old('details') ?: esc($bloodreq->details) ?></textarea>
                              <script>
                new SimpleMDE({
 		element: document.getElementById("summernote"),
