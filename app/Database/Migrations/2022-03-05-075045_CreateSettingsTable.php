@@ -15,23 +15,77 @@ class CreateSettingsTable extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'sname' => [
+            'siteName' => [
                 'type'       => 'varchar',
                 'constraint' => 255,
-                'unique'     => true,
             ],
-            'sdetails' => [
-                'type'       => 'text',
-                'constraint' => 450,
+            'siteEmail' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'sitePhone' => [
+                'type'       => 'varchar',
+                'constraint' => 18,
+            ],
+            'siteAddress' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'siteFB' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'siteTwitter' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'siteLinkIn' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'siteYT' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'siteInsta' => [
+                'type'       => 'varchar',
+                'constraint' => 100,
+            ],
+            'siteAus' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'siteGkey' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'siteBkey' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'siteFkey' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'siteGAKet' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
+            ],
+            'siteCover' => [
+                'type'       => 'varchar',
+                'constraint' => 255,
             ],
             'created_at' => [
-                'type' => 'datetime', 'null' => true,
+                'type' => 'datetime', 
+                'null' => true,
             ],
             'updated_at' => [
-                'type' => 'datetime', 'null' => true,
+                'type' => 'datetime', 
+                'null' => true,
             ],
             'deleted_at' => [
-                'type' => 'datetime', 'null' => true,
+                'type' => 'datetime', 
+                'null' => true,
             ],
         ];
 

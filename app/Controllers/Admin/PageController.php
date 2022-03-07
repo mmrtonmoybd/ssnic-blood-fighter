@@ -40,5 +40,30 @@ class PageController extends BaseController
         if (null === $get) {
             throw PageNotFoundException::forPageNotFound();
         }
+
+        $rules = [
+            'pname' => 'required|string',
+            'seot' => 'required|string',
+            'seod' => 'required|string',
+            'seok' => 'required|string',
+            'pcontent' => 'required|string',
+        ];
+
+        if (! $this->validate($rules)) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $data = [
+            'pname' => $this->request->getPost('pname'),
+            'seot' => $this->request->getPost('seot'),
+            'seod' => $this->request->getPost('seod'),
+            'seok' => $this->request->getPost('seok'),
+            'pcontent' => $this->request->getPost('pcontent'),
+        ];
+
+        if (!$model->update($id, $data)) {
+            return redirect()->back()->withInput()->with('errors', $model->errors()); 
+        }
+        return redirect()->route('admin.page.index')->with('message', 'Page update successfull');
     }
 }

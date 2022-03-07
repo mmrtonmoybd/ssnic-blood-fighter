@@ -33,7 +33,7 @@ class BloodRequestVontroller extends BaseController
         $usersc = $umodel->select('CONCAT(firstname, " ", lastname) AS fullname, users.id AS id')
             ->join('auth_groups_users AS agu', 'agu.user_id=users.id')
             ->join('auth_groups AS ag', 'agu.group_id=ag.id')
-            ->where('ag.name', 'contributor')->findAll();
+            ->where("ag.name='contributor' || ag.name='admin'")->findAll();
 
         if (null === $get) {
             throw PageNotFoundException::forPageNotFound();

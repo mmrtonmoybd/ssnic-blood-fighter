@@ -15,7 +15,7 @@ class Setting extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'sname', 'sdetails',
+        'siteName', 'siteEmail', 'sitePhone', 'siteAddress', 'siteFB', 'siteTwitter', 'siteLinkIn', 'siteYT', 'siteInsta', 'siteName', 'siteAus', 'siteGkey', 'siteBkey', 'siteFkey', 'siteGAKet', 'siteCover',
     ];
 
     // Dates

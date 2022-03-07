@@ -95,6 +95,11 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
 
     $routes->get('pages', 'PageController::index', ['as' => 'admin.page.index']);
     $routes->get('pages/update/(:num)', 'PageController::show/$1', ['as' => 'admin.page.update']);
+    $routes->post('pages/update/(:num)', 'PageController::update/$1');
+
+    $routes->get('seo', 'SeoController::index', ['as' => 'admin.seo.index']);
+    $routes->get('seo/update/(:num)', 'SeoController::show/$1', ['as' => 'admin.seo.update']);
+    $routes->post('seo/update/(:num)', 'SeoController::update/$1');
 });
 
 /*

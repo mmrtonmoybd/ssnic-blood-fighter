@@ -28,13 +28,16 @@ class CreateSeoTable extends Migration
                 'constraint' => 255,
             ],
             'created_at' => [
-                'type' => 'datetime', 'null' => true,
+                'type' => 'datetime', 
+                'null' => true,
             ],
             'updated_at' => [
-                'type' => 'datetime', 'null' => true,
+                'type' => 'datetime', 
+                'null' => true,
             ],
             'deleted_at' => [
-                'type' => 'datetime', 'null' => true,
+                'type' => 'datetime', 
+                'null' => true,
             ],
         ];
 
