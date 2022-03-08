@@ -63,7 +63,7 @@ $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Fro
 
 // Admin Router
 
-$routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controllers\Admin'], static function ($routes) {
+$routes->group('admin', ['filter' => 'role:admin,sadmin', 'namespace' => 'App\Controllers\Admin'], static function ($routes) {
     $routes->get('dashboard', 'Dashboard::index', ['as' => 'admin.dashboard']);
 
     $routes->get('users', 'UserSector::index', ['as' => 'admin.users']);
@@ -93,13 +93,20 @@ $routes->group('admin', ['filter' => 'role:admin', 'namespace' => 'App\Controlle
 
     $routes->get('blood/request/show/(:num)', 'BloodRequestVontroller::show/$1', ['as' => 'admin.blood.request.show']);
 
-    $routes->get('pages', 'PageController::index', ['as' => 'admin.page.index']);
-    $routes->get('pages/update/(:num)', 'PageController::show/$1', ['as' => 'admin.page.update']);
-    $routes->post('pages/update/(:num)', 'PageController::update/$1');
+    $routes->group('', ['filter' => 'role:sadmin', 'namespace' => 'App\Controllers\Admin'], static function ($routes) {
+           $routes->get('pages', 'PageController::index', ['as' => 'admin.page.index']);
+           $routes->get('pages/update/(:num)', 'PageController::show/$1', ['as' => 'admin.page.update']);
+           $routes->post('pages/update/(:num)', 'PageController::update/$1');
 
-    $routes->get('seo', 'SeoController::index', ['as' => 'admin.seo.index']);
-    $routes->get('seo/update/(:num)', 'SeoController::show/$1', ['as' => 'admin.seo.update']);
-    $routes->post('seo/update/(:num)', 'SeoController::update/$1');
+           $routes->get('seo', 'SeoController::index', ['as' => 'admin.seo.index']);
+           $routes->get('seo/update/(:num)', 'SeoController::show/$1', ['as' => 'admin.seo.update']);
+           $routes->post('seo/update/(:num)', 'SeoController::update/$1');
+
+           $routes->get('setting', 'SeetingController::index', ['as' => 'admin.setting.index']);
+           $routes->post('setting', 'SeetingController::update');
+    });
+
+    
 });
 
 /*

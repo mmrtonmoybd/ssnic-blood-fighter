@@ -3,7 +3,10 @@
       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<?= empty(user()->pphoto) ? base_url('photos/default_male.png') : base_url(user()->pphoto) ?>" alt="User Image" width="50" height="50">
         <div>
           <p class="app-sidebar__user-name"><?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?></p>
-          <p class="app-sidebar__user-designation">Admin</p>
+          <p class="app-sidebar__user-designation"><?php
+                                       $authorize = service('authorization');
+                                       if ($authorize->inGroup('sadmin', user()->id)) {
+                                       ?>Super Admin<?php } else { echo 'Admin'; } ?></p>
         </div>
       </div>
       <ul class="app-menu">
@@ -22,7 +25,12 @@
 
           </ul>
         </li>
+        <?php
+        if ($authorize->inGroup('sadmin', user()->id)) {
+        ?>
         <li><a class="app-menu__item <?= (url_is(route_to('admin.page.index')) || url_is('admin/pages/update/*')) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.page.index')) ?>"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Pages</span></a></li>
         <li><a class="app-menu__item <?= (url_is(route_to('admin.seo.index')) || url_is('admin/seo/update/*')) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.seo.index')) ?>"><i class="app-menu__icon fa fa-search"></i><span class="app-menu__label">Seo</span></a></li>
+        <li><a class="app-menu__item <?= (url_is(route_to('admin.setting.index'))) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.setting.index')) ?>"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Settings</span></a></li>
+        <?php } ?>
       </ul>
     </aside>

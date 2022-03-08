@@ -15,17 +15,21 @@ class AuthGroup extends Seeder
 
         $data = [
             [
-                'name'        => 'donor',
-                'description' => 'Normal user call Donor. This user can edit there profile and just see ther blood history.',
+                'name'        => 'sadmin',
+                'description' => 'Super admin is a person who can manage everything on this system.',
             ],
             [
+                'name'        => 'admin',
+                'description' => 'Admin is a person who can manage many things on this system.',
+            ],
+             [
                 'name'        => 'contributor',
                 'description' => 'The user who manage the blood donor is call contributor. This user also same as donor.',
 
             ],
             [
-                'name'        => 'admin',
-                'description' => 'Admin is a person who can manage everything on this system.',
+                'name'        => 'donor',
+                'description' => 'Normal user call Donor. This user can edit there profile and just see ther blood history.',
             ],
         ];
 

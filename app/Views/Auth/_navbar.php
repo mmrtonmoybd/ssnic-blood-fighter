@@ -16,7 +16,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= route_to('dashboard') ?>">Dashboard</a>
             </li>
-            <?php if ($authorization->inGroup('admin', $authenticate->id())) { ?>
+            <?php if ($authorization->inGroup('admin', $authenticate->id()) || $authorization->inGroup('sadmin', $authenticate->id())) { ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?= route_to('admin.dashboard') ?>">Admin Panel</a>
             </li>

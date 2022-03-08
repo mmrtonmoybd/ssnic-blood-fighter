@@ -12,6 +12,23 @@ class UsersSeeder extends Seeder
     {
         $users = [
             [
+                'email'         => 'sadmin@gmail.com',
+                'username'      => 'sadmin',
+                'firstname'     => 'Moshiur',
+                'lastname'      => 'Rahman',
+                'phonenumber'   => '01925398888',
+                'gender'        => 'Male',
+                'institute'     => 'ssnic',
+                'batch'         => 'Batch-21',
+                'bgroup'        => 'O+',
+                'haddress'      => 'Mymensingh',
+                'city'          => 'Mymensingh',
+                'password_hash' => Password::hash('224466@@'),
+                'active'        => 1,
+                'created_at'    => date('Y-m-d H:i:s'),
+                'updated_at'    => date('Y-m-d H:i:s'),
+            ],
+            [
                 'email'         => 'admin@gmail.com',
                 'username'      => 'admin',
                 'firstname'     => 'Moshiur',
@@ -75,7 +92,7 @@ class UsersSeeder extends Seeder
         // GROUPS-USERS
         $rows = [
             [
-                'group_id' => 3,
+                'group_id' => 1,
                 'user_id'  => 1,
             ],
             [
@@ -83,8 +100,12 @@ class UsersSeeder extends Seeder
                 'user_id'  => 2,
             ],
             [
-                'group_id' => 1,
+                'group_id' => 3,
                 'user_id'  => 3,
+            ],
+            [
+                'group_id' => 4,
+                'user_id'  => 4,
             ],
         ];
 

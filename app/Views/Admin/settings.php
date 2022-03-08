@@ -18,80 +18,85 @@
               <div class="col-lg-12">
               <?= view('App\Admin\Main\_message') ?>
 
-                <form action="<?= base_url() ?>" method="POST" enctype="multipart/form-data">
+                <form action="<?= base_url(route_to('admin.setting.index')) ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field() ?>
+                <h3 class="tile-title">General settings</h3>
                         <div class="form-group">
                             <label for="phonenumber">Site name</label>
-                            <input type="text" class="form-control " placeholder="Site name" value="<?= old('siteName') ?: esc($setting->siteName) ?>" name="siteName">
+                            <input type="text" class="form-control <?php if (session('errors.siteName')) : ?>is-invalid<?php endif ?>" placeholder="Site name" value="<?= old('siteName') ? old('siteName') : esc($setting->siteName) ?>" name="siteName">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber">Site email </label>
-                            <input type="text" class="form-control " placeholder="Site email" value="<?= old('siteEmail') ?: esc($setting->siteEmail) ?>" name="siteEmail">
+                            <input type="text" class="form-control <?php if (session('errors.siteEmail')) : ?>is-invalid<?php endif ?>" placeholder="Site email" value="<?= old('siteEmail') ? old('siteEmail') : esc($setting->siteEmail) ?>" name="siteEmail">
 
                         </div>
                         <div class="form-group">
                             <label for="phonenumber">Site phone </label>
-                            <input type="text" class="form-control " placeholder="Site phone" value="<?= old('sitePhone') ?: esc($setting->sitePhone) ?>" name="sitePhone">
+                            <input type="text" class="form-control <?php if (session('errors.sitePhone')) : ?>is-invalid<?php endif ?>" placeholder="Site phone" value="<?= old('sitePhone') ? old('sitePhone') : esc($setting->sitePhone) ?>" name="sitePhone">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Site address</label>
+                            <input type="text" class="form-control <?php if (session('errors.siteAddress')) : ?>is-invalid<?php endif ?>" placeholder="Site address" value="<?= old('siteAddress') ? old('siteAddress') : esc($setting->siteAddress) ?>" name="siteAddress">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                          <?= empty($setting->siteCover) ? '' : '<img src="' . base_url($setting->siteCover) . '" width="600" height="330">' ?>
+                            <label for="phonenumber">Site cover photo</label>
+                            <input type="file" class="form-control <?php if (session('errors.photo')) : ?>is-invalid<?php endif ?>" name="photo" placeholder="Site cover photo">
+
+                        </div>
+                        <h3 class="tile-title">Social settings</h3>
+                        <div class="form-group">
+                            <label for="phonenumber">Site FB </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteFB')) : ?>is-invalid<?php endif ?>" placeholder="Facebook url" value="<?= old('siteFB') ? old('siteFB') : esc($setting->siteFB) ?>" name="siteFB">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Site twitter </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteTwitter')) : ?>is-invalid<?php endif ?>" placeholder="Site twitter" value="<?= old('siteTwitter') ? old('siteTwitter') : esc($setting->siteTwitter) ?>" name="siteTwitter">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Site linkin </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteLinkIn')) : ?>is-invalid<?php endif ?>" placeholder="Site linkin" value="<?= old('siteLinkIn') ? old('siteLinkIn') : esc($setting->siteLinkIn) ?>" name="siteLinkIn">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Site youtube </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteYT')) : ?>is-invalid<?php endif ?>" placeholder="Site youtube" value="<?= old('siteYT') ? old('siteYT') : esc($setting->siteYT) ?>" name="siteYT">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Site instagram </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteInsta')) : ?>is-invalid<?php endif ?>" placeholder="Site instagram" value="<?= old('siteInsta') ? old('siteInsta') : esc($setting->siteInsta) ?>" name="siteInsta">
+
+                        </div>
+                        <h3 class="tile-title">Site about(255 max)</h3>
+                        <div class="form-group">
+                            <label for="haddress">Site Decription</label>
+                            <textarea type="text" class="form-control <?php if (session('errors.siteAus')) : ?>is-invalid<?php endif ?>"  placeholder="Site details" name="siteAus"><?= old('siteAus') ? old('siteAus') : esc($setting->siteAus) ?></textarea>
+                        </div>
+                        <h3 class="tile-title">Seo meta key settings</h3>
+                        <div class="form-group">
+                            <label for="phonenumber">Google meta key </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteGkey')) : ?>is-invalid<?php endif ?>" placeholder="Google meta key" value="<?= old('siteGkey') ?old('siteGkey') : esc($setting->siteGkey) ?>" name="siteGkey">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
-
-                        </div>
-                         <div class="form-group">
-                            <label for="haddress"><?= $page->sslug ?> seo Decription</label>
-                            <textarea type="text" class="form-control"  placeholder="Page seo title" name="seod"><?= old('seod') ?: esc($page->sdetails) ?></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Bing meta key </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteBkey')) : ?>is-invalid<?php endif ?>" placeholder="Bing meta key" value="<?= old('siteBkey') ? old('siteBkey') : esc($setting->siteBkey) ?>" name="siteBkey">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Facebook app id </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteFkey')) : ?>is-invalid<?php endif ?>" placeholder="Facebook app id" value="<?= old('siteFkey') ? old('siteFkey') : esc($setting->siteFkey) ?>" name="siteFkey">
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
-
-                        </div>
-                        <div class="form-group">
-                            <label for="phonenumber"><?= $page->sslug ?> </label>
-                            <input type="text" class="form-control " placeholder="Page title" value="<?= old('seot') ?: esc($setting->stitle) ?>" name="seot">
+                            <label for="phonenumber">Google analizer id </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteGAKet')) : ?>is-invalid<?php endif ?>" placeholder="Google analizer id" value="<?= old('siteGAKet') ? old('siteGAKet') : esc($setting->siteGAKet) ?>" name="siteGAKet">
 
                         </div>
 

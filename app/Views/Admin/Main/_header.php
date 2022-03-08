@@ -29,6 +29,12 @@
         <!-- User Menu-->
         <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <?php
+                                       $authorize = service('authorization');
+                                       if ($authorize->inGroup('sadmin', user()->id)) {
+                                       ?>
+            <li><a class="dropdown-item" href="<?= base_url(route_to('admin.setting.index')) ?>"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <?php } ?>
             <li><a class="dropdown-item" href="<?= route_to('dashboard') ?>"><i class="fa fa-user fa-lg"></i> Profile</a></li>
             <li><a class="dropdown-item" href="<?= base_url('logout') ?>"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           </ul>

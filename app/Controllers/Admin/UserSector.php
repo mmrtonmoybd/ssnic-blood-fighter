@@ -39,6 +39,10 @@ class UserSector extends BaseController
             throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
+        if (($authorize->inGroup('admin', user()->id)) && ($authorize->inGroup('sadmin', $id))) {
+            throw new CurrentUserIsAdmin('Admin can not update or delete Super Admin');
+        }
+
         return view('Admin/userupdate', [
             'user'      => $user,
             'authorize' => $authorize,
@@ -58,15 +62,23 @@ class UserSector extends BaseController
             throw new CurrentUserIsAdmin('Admin can not update or delete own account');
         }
 
+        if (($authorize->inGroup('admin', user()->id)) && ($authorize->inGroup('sadmin', $id))) {
+            throw new CurrentUserIsAdmin('Admin can not update or delete Super Admin');
+        }
+
         $rules = [
             'firstname' => 'required|alpha|max_length[255]',
             'lastname'  => 'required|alpha|max_length[255]',
             'status'    => 'required|in_list[banned,unbanned]',
-            'role'      => 'required|in_list[donor,contributor,admin]',
+            'role'      => 'required|in_list[donor,contributor,admin,sadmin]',
         ];
 
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+        
+        if (($authorize->inGroup('admin', user()->id)) && ($this->request->getPost('role') === 'sadmin')) {
+            throw new CurrentUserIsAdmin('Admin can not give Super Admin permition.');
         }
 
         $status = ($this->request->getPost('status') === 'banned') ? 'banned' : null;
@@ -95,12 +107,17 @@ class UserSector extends BaseController
     {
         $model = new UserModel();
         $user  = $model->find($id);
+         $authorize = service('authorization');
 
         if (! $user) {
             throw UserNotFoundException::forUserID($id);
         }
         if (user()->id === $id) {
             throw new CurrentUserIsAdmin('Admin can not update or delete own account');
+        }
+
+        if (($authorize->inGroup('admin', user()->id)) && ($authorize->inGroup('sadmin', $id))) {
+            throw new CurrentUserIsAdmin('Admin can not update or delete Super Admin');
         }
 
         if ($model->delete($id)) {
@@ -114,6 +131,7 @@ class UserSector extends BaseController
     {
         $model = new UserModel();
         $user  = $model->find($id);
+
 
         if (! $user) {
             throw UserNotFoundException::forUserID($id);

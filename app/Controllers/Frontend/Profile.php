@@ -17,6 +17,8 @@ class Profile extends BaseController
             $role = 'Admin';
         } elseif ($authorize->inGroup('contributor', user_id())) {
             $role = 'Contributor';
+        } elseif ($authorize->inGroup('sadmin', user_id())) {
+            $role = 'Super Admin';
         } else {
             $role = 'Donor';
         }

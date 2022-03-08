@@ -50,6 +50,9 @@
                           if ($authorize->inGroup('contributor', $id)) {
                               return '<p class="btn btn-warning">Contributor</p>';
                           }
+                          if ($authorize->inGroup('sadmin', $id)) {
+                              return '<p class="btn btn-success">Super Admin</p>';
+                          }
 
                           return '<p class="btn btn-info">Donor</p>';
                       }
