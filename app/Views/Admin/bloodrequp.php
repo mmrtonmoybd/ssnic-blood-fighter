@@ -95,7 +95,7 @@
                         </div>
                     <div class="form-group">
                             <label for="haddress">Details</label>
-                            <textarea type="text" class="form-control" id="summernote" rows="5" placeholder="Blood donation details" name="details"><?= old('details') ?: esc($bloodreq->details) ?></textarea>
+                            <textarea type="text" class="form-control <?php if (session('errors.details')) : ?>is-invalid<?php endif ?>" id="summernote" rows="5" placeholder="Blood donation details" name="details"><?= old('details') ?: esc($bloodreq->details) ?></textarea>
                              <script>
                new SimpleMDE({
 		element: document.getElementById("summernote"),
