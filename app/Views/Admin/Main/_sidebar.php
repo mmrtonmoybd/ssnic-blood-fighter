@@ -6,7 +6,10 @@
           <p class="app-sidebar__user-designation"><?php
                                        $authorize = service('authorization');
                                        if ($authorize->inGroup('sadmin', user()->id)) {
-                                       ?>Super Admin<?php } else { echo 'Admin'; } ?></p>
+                                           ?>Super Admin<?php
+                                       } else {
+                                           echo 'Admin';
+                                       } ?></p>
         </div>
       </div>
       <ul class="app-menu">
@@ -27,10 +30,11 @@
         </li>
         <?php
         if ($authorize->inGroup('sadmin', user()->id)) {
-        ?>
+            ?>
         <li><a class="app-menu__item <?= (url_is(route_to('admin.page.index')) || url_is('admin/pages/update/*')) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.page.index')) ?>"><i class="app-menu__icon fa fa-file-text-o"></i><span class="app-menu__label">Pages</span></a></li>
         <li><a class="app-menu__item <?= (url_is(route_to('admin.seo.index')) || url_is('admin/seo/update/*')) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.seo.index')) ?>"><i class="app-menu__icon fa fa-search"></i><span class="app-menu__label">Seo</span></a></li>
         <li><a class="app-menu__item <?= (url_is(route_to('admin.setting.index'))) ? 'active' : '' ?>" href="<?= base_url(route_to('admin.setting.index')) ?>"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Settings</span></a></li>
-        <?php } ?>
+        <?php
+        } ?>
       </ul>
     </aside>

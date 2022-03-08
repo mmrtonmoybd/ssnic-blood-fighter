@@ -62,14 +62,15 @@
                             <select name="role"  class="form-control <?php if (session('errors.role')) : ?>is-invalid<?php endif ?>" required>
                                        <option  value="donor" <?php (old('role') === 'donor' || $authorize->inGroup('donor', $user->id)) ? print('selected') : '' ?>>Donor</option>
                                        <option  value="contributor" <?php (old('role') === 'contributor' || $authorize->inGroup('contributor', $user->id)) ? print('selected') : '' ?>>Contributor</option>
-                                       
+
                                        <option  value="admin" <?php (old('role') === 'admin' || $authorize->inGroup('admin', $user->id)) ? print('selected') : '' ?>>Admin</option>
                                        <?php
                                        $authorize = service('authorization');
                                        if ($authorize->inGroup('sadmin', user()->id)) {
-                                       ?>
+                                           ?>
                                       <option  value="sadmin" <?php (old('role') === 'sadmin' || $authorize->inGroup('sadmin', $user->id)) ? print('selected') : '' ?>>Super Admin</option>
-                                      <?php } ?> 
+                                      <?php
+                                       } ?>
                             </select>
                         </div>
 

@@ -10,7 +10,8 @@ class SeetingController extends BaseController
     public function index()
     {
         $model = new Setting();
-        $get = $model->first();
+        $get   = $model->first();
+
         return view('Admin/settings', [
             'setting' => $get,
         ]);
@@ -19,20 +20,20 @@ class SeetingController extends BaseController
     public function update()
     {
         $rules = [
-            'siteName' => 'required|alpha_space|max_length[100]',
-            'siteEmail' => 'required|valid_email|max_length[100]',
-            'sitePhone' => 'required|numeric|max_length[15]',
+            'siteName'    => 'required|alpha_space|max_length[100]',
+            'siteEmail'   => 'required|valid_email|max_length[100]',
+            'sitePhone'   => 'required|numeric|max_length[15]',
             'siteAddress' => 'required|string|max_length[255]',
-            'siteFB' => 'required|valid_url|max_length[100]',
+            'siteFB'      => 'required|valid_url|max_length[100]',
             'siteTwitter' => 'required|valid_url|max_length[100]',
-            'siteLinkIn' => 'required|valid_url|max_length[100]',
-            'siteYT' => 'required|valid_url|max_length[100]',
-            'siteInsta' => 'required|valid_url|max_length[100]',
-            'siteAus' => 'required|string|max_length[255]',
-            'siteGkey' => 'required|alpha_numeric_punct|max_length[255]',
-            'siteBkey' => 'required|alpha_numeric_punct|max_length[255]',
-            'siteFkey' => 'required|alpha_numeric_punct|max_length[255]',
-            'siteGAKet' => 'required|alpha_numeric_punct|max_length[255]',
+            'siteLinkIn'  => 'required|valid_url|max_length[100]',
+            'siteYT'      => 'required|valid_url|max_length[100]',
+            'siteInsta'   => 'required|valid_url|max_length[100]',
+            'siteAus'     => 'required|string|max_length[255]',
+            'siteGkey'    => 'required|alpha_numeric_punct|max_length[255]',
+            'siteBkey'    => 'required|alpha_numeric_punct|max_length[255]',
+            'siteFkey'    => 'required|alpha_numeric_punct|max_length[255]',
+            'siteGAKet'   => 'required|alpha_numeric_punct|max_length[255]',
         ];
         $photo = $this->request->getFile('photo');
 
@@ -45,20 +46,20 @@ class SeetingController extends BaseController
         }
 
         $data = [
-            'siteName' => $this->request->getPost('siteName'),
-            'siteEmail' => $this->request->getPost('siteEmail'),
-            'sitePhone' => $this->request->getPost('sitePhone'),
+            'siteName'    => $this->request->getPost('siteName'),
+            'siteEmail'   => $this->request->getPost('siteEmail'),
+            'sitePhone'   => $this->request->getPost('sitePhone'),
             'siteAddress' => $this->request->getPost('siteAddress'),
-            'siteFB' => $this->request->getPost('siteFB'),
+            'siteFB'      => $this->request->getPost('siteFB'),
             'siteTwitter' => $this->request->getPost('siteTwitter'),
-            'siteLinkIn' => $this->request->getPost('siteLinkIn'),
-            'siteYT' => $this->request->getPost('siteYT'),
-            'siteInsta' => $this->request->getPost('siteInsta'),
-            'siteAus' => $this->request->getPost('siteAus'),
-            'siteGkey' => $this->request->getPost('siteGkey'),
-            'siteBkey' => $this->request->getPost('siteBkey'),
-            'siteFkey' => $this->request->getPost('siteFkey'),
-            'siteGAKet' => $this->request->getPost('siteGAKet'),
+            'siteLinkIn'  => $this->request->getPost('siteLinkIn'),
+            'siteYT'      => $this->request->getPost('siteYT'),
+            'siteInsta'   => $this->request->getPost('siteInsta'),
+            'siteAus'     => $this->request->getPost('siteAus'),
+            'siteGkey'    => $this->request->getPost('siteGkey'),
+            'siteBkey'    => $this->request->getPost('siteBkey'),
+            'siteFkey'    => $this->request->getPost('siteFkey'),
+            'siteGAKet'   => $this->request->getPost('siteGAKet'),
         ];
 
         if ($this->request->getFile('photo')->isValid() && ! $photo->hasMoved()) {

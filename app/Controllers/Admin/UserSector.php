@@ -76,7 +76,7 @@ class UserSector extends BaseController
         if (! $this->validate($rules)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-        
+
         if (($authorize->inGroup('admin', user()->id)) && ($this->request->getPost('role') === 'sadmin')) {
             throw new CurrentUserIsAdmin('Admin can not give Super Admin permition.');
         }
@@ -105,9 +105,9 @@ class UserSector extends BaseController
 
     public function delete($id)
     {
-        $model = new UserModel();
-        $user  = $model->find($id);
-         $authorize = service('authorization');
+        $model     = new UserModel();
+        $user      = $model->find($id);
+        $authorize = service('authorization');
 
         if (! $user) {
             throw UserNotFoundException::forUserID($id);
@@ -131,7 +131,6 @@ class UserSector extends BaseController
     {
         $model = new UserModel();
         $user  = $model->find($id);
-
 
         if (! $user) {
             throw UserNotFoundException::forUserID($id);

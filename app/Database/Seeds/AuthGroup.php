@@ -22,7 +22,7 @@ class AuthGroup extends Seeder
                 'name'        => 'admin',
                 'description' => 'Admin is a person who can manage many things on this system.',
             ],
-             [
+            [
                 'name'        => 'contributor',
                 'description' => 'The user who manage the blood donor is call contributor. This user also same as donor.',
 

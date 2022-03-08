@@ -22,6 +22,5 @@ class UpdateSeoTable extends Migration
 
     public function down()
     {
-
     }
 }
