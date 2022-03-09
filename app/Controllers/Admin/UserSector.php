@@ -175,9 +175,9 @@ class UserSector extends BaseController
         $getdonors = $model->select('users.*,
                (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.donor) AS dcount,
                (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')
-               ->where('lastdonate <= ', $beforeday)
-               ->orWhere('lastdonate', null)
-               ->where('status', null)->findAll();
+            ->where('lastdonate <= ', $beforeday)
+            ->orWhere('lastdonate', null)
+            ->where('status', null)->findAll();
 
         return view('Admin/activedonors', [
             'users' => $getdonors,
