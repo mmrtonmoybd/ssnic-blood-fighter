@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\admin') ?>
+<?= $this->section('pageSeo') ?>
+<title>Seo update</title>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>

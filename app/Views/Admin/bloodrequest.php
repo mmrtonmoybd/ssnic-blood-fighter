@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\admin') ?>
+<?= $this->section('pageSeo') ?>
+<title>All blood request</title>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
@@ -78,7 +81,7 @@
                       <td><?= getLastdonhuman($bloodreq->created_at) ?></td>
                       <td>
                         <div class="btn-group">
-                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.show', $bloodreq->id)) ?>"><i class="fa fa-lg fa-eye"></i></a>
+                        <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.show', (int) $bloodreq->id)) ?>"><i class="fa fa-lg fa-eye"></i></a>
                         <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.update', $bloodreq->id)) ?>"><i class="fa fa-lg fa-edit"></i></a>
                         <a class="btn btn-primary" href="<?= base_url(route_to('admin.blood.request.delete', $bloodreq->id)) ?>"><i class="fa fa-lg fa-trash"></i></a>
                       </div>

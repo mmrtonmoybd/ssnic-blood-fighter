@@ -1,4 +1,8 @@
 <!-- Footer -->
+<?php
+$model = new App\Models\Setting();
+$info = $model->first();
+?>
     <footer class="page-footer font-small danger-color pt-4">
 
         <!-- Footer Links -->
@@ -12,10 +16,7 @@
 
                     <!-- Content -->
                     <h5 class="text-uppercase">Lets make all Bonded</h5>
-                    <p>Bonded is a web based blood Donation platform which connects thousands of blood donors in three
-                        simple steps. Bonded ensures hassle free blood donation and privacy of a blood donor. A blood
-                        donor can select any specific date and location to donate blood and find a suitable person who
-                        needs blood. </p>
+                    <p><?= esc($info->siteAus) ?></p>
 
                 </div>
                 <!-- Grid column -->
@@ -30,14 +31,14 @@
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="mailto:webmetry@post.com"><i
-                                    class="fas fa-envelope-open mr-3"></i>webmetry@post.com</a>
+                            <a href="mailto:<?= esc($info->siteEmail) ?>"><i
+                                    class="fas fa-envelope-open mr-3"></i><?= esc($info->siteEmail) ?></a>
                         </li>
                         <li>
-                            <a href="#!"><i class="fas fa-location-arrow mr-3"></i>Agartala,Tripura 799130</a>
+                            <a href="#!"><i class="fas fa-location-arrow mr-3"></i><?= esc($info->siteAddress) ?></a>
                         </li>
                         <li>
-                            <a href="#!"><i class="fas fa-tty mr-3"></i>+91-123-456-7890</a>
+                            <a href="#!"><i class="fas fa-tty mr-3"></i>+<?= esc($info->sitePhone) ?></a>
                         </li>
                     </ul>
 
@@ -52,16 +53,13 @@
 
                     <ul class="list-unstyled">
                         <li>
-                            <a href="#!">Link 1</a>
+                            <a href="<?= base_url(route_to('page', 1)) ?>">About us</a>
                         </li>
                         <li>
-                            <a href="#!">Link 2</a>
+                            <a href="<?= base_url(route_to('page', 2)) ?>">Contact us</a>
                         </li>
                         <li>
-                            <a href="#!">Link 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Credits</a>
+                            <a href="<?= base_url(route_to('page', 3)) ?>">Why donate us</a>
                         </li>
                     </ul>
 
@@ -82,28 +80,24 @@
                     <div class="mb-5 flex-center">
 
                         <!-- Facebook -->
-                        <a class="fb-ic">
+                        <a class="fb-ic" target="_blank" href="//<?= esc($info->siteFB) ?>" target="_blank">
                             <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                         </a>
                         <!-- Twitter -->
-                        <a class="tw-ic">
+                        <a class="tw-ic" target="_blank" href="//<?= esc($info->siteTwitter) ?>">
                             <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                         </a>
-                        <!-- Google +-->
-                        <a class="gplus-ic">
-                            <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                        </a>
                         <!--Linkedin -->
-                        <a class="li-ic">
+                        <a class="li-ic" target="_blank" href="//<?= esc($info->siteLinkIn) ?>">
                             <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                         </a>
                         <!--Instagram-->
-                        <a class="ins-ic">
+                        <a class="ins-ic" target="_blank" href="//<?= esc($info->siteInsta) ?>">
                             <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
                         </a>
                         <!--Pinterest-->
-                        <a class="pin-ic">
-                            <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                        <a class="pin-ic" target="_blank" href="//<?= esc($info->siteYT) ?>">
+                            <i class="fab fa-youtube fa-lg white-text fa-2x"> </i>
                         </a>
                     </div>
                 </div>
@@ -117,7 +111,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© <?= date('Y') ?> Copyright:
-            <a href="/"> Moshiur </a> All Rights Reserved
+            <b> Cyber Lion </b> All Rights Reserved
         </div>
         <!-- Copyright -->
 

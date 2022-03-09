@@ -3,12 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Moshiur Rahman">
     <?= csrf_meta() ?>
+    <?= $this->renderSection('pageSeo') ?>
     <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Myth:Auth</title>
 
     <!-- Bootstrap core CSS -->
 	 <meta charset="UTF-8">

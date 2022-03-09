@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\layout') ?>
+<?= $this->section('pageSeo') ?>
+<title>User dashboard</title>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
@@ -39,7 +42,7 @@
 
                               ?>
                               নামঃ <?= esc(trim(trim(user()->firstname) . ' ' . trim(user()->lastname))) ?><br>
-                              Total managed : <?= (($role === 'Contributor') || ($role === 'Admin')) ? $mcount : '' ?><br>
+                              Total managed : <?= (($role === 'Contributor') || ($role === 'Admin') || ($role === 'Super Admin')) ? $mcount : '' ?><br>
                               Total Donated : <?= $dcount ?><br>
                               ইমেইলঃ <?= esc(user()->email) ?> <br>
                               Username:  <?= esc(user()->username) ?> <br>

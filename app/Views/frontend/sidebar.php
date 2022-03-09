@@ -18,7 +18,7 @@
                         <?php
 } ?>
 
-                        <?php if ($role === 'Admin' || $role === 'Contributor') {
+                        <?php if ($role === 'Admin' || $role === 'Contributor' || $role === 'Super Admin') {
         ?>
                         <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('bloodrequest') ?>"> <i class="fa fa-sign-out"></i> Blood request </a></div>
                          <div class="sidenavdiv"><a style="text-decoration:none;" class="list-group-item  sidenavlink" href="<?= route_to('BloodManage') ?>"> <i class="fa fa-sign-out"></i> Blood managed </a></div>

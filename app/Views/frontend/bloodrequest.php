@@ -1,7 +1,6 @@
 <?= $this->extend('App\Views\App\layout') ?>
-<?= $this->section('pageStyles') ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<?= $this->section('pageSeo') ?>
+<title>Blood request add</title>
 <?= $this->endSection() ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
@@ -20,7 +19,7 @@
 
 
                               <!--- New Post area-->
-                              <form method="post" action="<?= route_to('bloodrequest') ?>" style="min-width:100%;">
+                              <form method="post" action="<?= base_url(route_to('bloodrequest')) ?>" style="min-width:100%;">
                               <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="email">Blood Group</label>
@@ -50,17 +49,12 @@
                         <div class="form-group">
                             <label for="details">Details</label>
                             <textarea type="text" name="details" id="summernote" rows="5" class="form-control <?php if (session('errors.details')) : ?>is-invalid<?php endif ?>"  placeholder="Details" required><?= old('details') ?></textarea>
-                              <script>
-               new SimpleMDE({
-		element: document.getElementById("summernote"),
-		spellChecker: false,
-	});
-</script>
+                             
                         </div>
 
                         <br>
 
-                        <button type="submit" style=" color: white;" class="btn btn-block danger-color">Add blood request</button>
+                        <button type="submit" style="color: white;" class="btn btn-block danger-color">Blood request add</button>
                               </form>
                            </div>
                         </div>

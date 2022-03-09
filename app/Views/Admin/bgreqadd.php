@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\admin') ?>
+<?= $this->section('pageSeo') ?>
+<title>Blood request add</title>
+<?= $this->endSection() ?>
 <?= $this->section('pageStyles') ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
@@ -72,7 +75,7 @@
                       <div class="form-group">
                             <label for="email">Donor</label>
                             <select name="donor"  class="form-control <?php if (session('errors.donor')) : ?>is-invalid<?php endif ?>" required>
-                                <option  value="NULL" <?php (old('donor') === 'NULL') ? print('selected') : '' ?>>None</option>
+                                <option  value="null" <?php (old('donor') === 'NULL') ? print('selected') : '' ?>>None</option>
                                 <?php foreach ($users as $user1) {
     ?>
                                        <option  value="<?= $user1->id ?>" <?php ((old('donor') === $user1->id)) ? print('selected') : '' ?>><?= $user1->fullname ?></option>
@@ -83,7 +86,7 @@
                         <div class="form-group">
                             <label for="email">Managed by</label>
                             <select name="manage"  class="form-control <?php if (session('errors.manage')) : ?>is-invalid<?php endif ?>" required>
-                                <option  value="NULL" <?php (old('manage') === 'NULL') ? print('selected') : '' ?>>None</option>
+                                <option  value="null" <?php (old('manage') === 'NULL') ? print('selected') : '' ?>>None</option>
                                 <?php foreach ($cusers as $user2) {
         ?>
                                        <option  value="<?= $user2->id ?>" <?php ((old('manage') === $user2->id)) ? print('selected') : '' ?>><?= $user2->fullname ?></option>

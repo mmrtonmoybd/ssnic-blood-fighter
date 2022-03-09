@@ -122,8 +122,8 @@ class BloodRequestVontroller extends BaseController
             'refarence'   => $this->request->getPost('refarence'),
             'details'     => $this->request->getPost('details'),
             'user_id'     => user()->id,
-            'donor'       => $this->request->getPost('donor'),
-            'manage_by'   => $this->request->getPost('manage'),
+            'donor'       => (is_numeric($this->request->getPost('donor'))) ? $this->request->getPost('donor') : null,
+            'manage_by'   => (is_numeric($this->request->getPost('manage'))) ? $this->request->getPost('manage') : null,
             'status'      => $this->request->getPost('status'),
         ];
 

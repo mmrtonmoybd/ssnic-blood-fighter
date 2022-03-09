@@ -1,4 +1,17 @@
 <?= $this->extend($config->viewLayout) ?>
+<?= $this->section('pageSeo') ?>
+<?= view('frontend/mseo') ?>
+<?php
+$model = new App\Models\Seo();
+$seo = $model->where('sslug', 'register')->first();
+?>
+<title><?= esc($seo->stitle) ?></title>
+<meta name="description" content="<?= esc($seo->sdetails) ?>" />
+<meta name="keywords" content="<?= esc($seo->skey) ?>" />
+
+<meta property="og:title" content="<?= esc($seo->stitle) ?>" />
+<meta property="og:description" content="<?= esc($seo->sdetails) ?>" />
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 
 <div class="container">

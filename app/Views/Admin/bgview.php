@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\admin') ?>
+<?= $this->section('pageSeo') ?>
+<title>Blood donation info</title>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
@@ -22,8 +25,8 @@
                               <div class="tile">
             <div class="tile-body">
                  Request by: <a href="<?= base_url(route_to('admin.users.view', $bgreq->user_id)) ?>"><?= esc(trim($bgreq->fullname)) ?></a><br>
-                              Donate by: <a href="<?= base_url(route_to('admin.users.view', $bgreq->donor)) ?>"><?= esc($bgreq->donorname) ?></a> <br>
-                              Managed by:  <a href="<?= base_url(route_to('admin.users.view', $bgreq->manage_by)) ?>"><?= esc($bgreq->managername) ?></a> <br>
+                              Donate by: <a href="<?= base_url(route_to('admin.users.view', (int) $bgreq->donor)) ?>"><?= esc($bgreq->donorname) ?></a> <br>
+                              Managed by:  <a href="<?= base_url(route_to('admin.users.view', (int) $bgreq->manage_by)) ?>"><?= esc($bgreq->managername) ?></a> <br>
                               Blood group: <?= esc($bgreq->bgroup) ?> <br>
                               Donation place: <?= esc($bgreq->donateplace) ?> <br>
                               Refarence: <?= esc($bgreq->refarence) ?> <br>

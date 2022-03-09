@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\admin') ?>
+<?= $this->section('pageSeo') ?>
+<title>Site configaration</title>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
 <div class="app-title">
         <div>
@@ -85,7 +88,7 @@
 
                         </div>
                         <div class="form-group">
-                            <label for="phonenumber">Bing meta key </label>
+                            <label for="phonenumber">Facebook page id </label>
                             <input type="text" class="form-control <?php if (session('errors.siteBkey')) : ?>is-invalid<?php endif ?>" placeholder="Bing meta key" value="<?= old('siteBkey') ?: esc($setting->siteBkey) ?>" name="siteBkey">
 
                         </div>

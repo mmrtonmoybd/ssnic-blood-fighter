@@ -135,9 +135,6 @@ class UserSector extends BaseController
         if (! $user) {
             throw UserNotFoundException::forUserID($id);
         }
-        if (user()->id === $id) {
-            throw new CurrentUserIsAdmin('Admin can not update or delete own account');
-        }
 
         return view('Admin/userview', [
             'user' => $user,
@@ -177,8 +174,10 @@ class UserSector extends BaseController
 
         $getdonors = $model->select('users.*,
                (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.donor) AS dcount,
-               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')->where('lastdonate <= ', $beforeday)
-            ->where('status', null)->findAll();
+               (SELECT COUNT(*) FROM blood_requests as blr WHERE users.id=blr.manage_by) AS mcount')
+               ->where('lastdonate <= ', $beforeday)
+               ->orWhere('lastdonate', null)
+               ->where('status', null)->findAll();
 
         return view('Admin/activedonors', [
             'users' => $getdonors,

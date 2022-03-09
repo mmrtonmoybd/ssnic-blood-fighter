@@ -1,4 +1,7 @@
 <?= $this->extend('App\Views\App\layout') ?>
+<?= $this->section('pageSeo') ?>
+<title>Last blood donation added</title>
+<?= $this->endSection() ?>
 <?= $this->section('main') ?>
          <div  class="container container" style="padding-top:100px;">
             <div class="content-sidebar row justify-content-between">
@@ -16,7 +19,7 @@
 
 
                               <!--- New Post area-->
-                              <form method="post" action="<?= route_to('lastDonup') ?>" style="min-width:100%;" enctype="multipart/form-data">
+                              <form method="post" action="<?= route_to('lastDonup') ?>" style="min-width:100%;">
                               <?= csrf_field() ?>
                         <div class="form-group">
                             <label for="password">Last blood donation date</label>

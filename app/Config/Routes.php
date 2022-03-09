@@ -51,7 +51,7 @@ $routes->group('user', ['filter' => 'login', 'namespace' => 'App\Controllers\Fro
     $routes->get('lastblooddonate', 'Profile::showLastdon', ['as' => 'lastDonup']);
     $routes->post('lastblooddonate', 'Profile::lastDonup');
 
-    $routes->group('', ['filter' => 'role:admin,contributor', 'namespace' => 'App\Controllers\Frontend'], static function ($routes) {
+    $routes->group('', ['filter' => 'role:admin,contributor,sadmin', 'namespace' => 'App\Controllers\Frontend'], static function ($routes) {
         $routes->get('bloodrequest', 'Profile::showBloodRequest', ['as' => 'bloodrequest']);
         $routes->post('bloodrequest', 'Profile::attempBloodRequest');
         $routes->get('manage', 'Profile::manage', ['as' => 'BloodManage']);
@@ -91,7 +91,7 @@ $routes->group('admin', ['filter' => 'role:admin,sadmin', 'namespace' => 'App\Co
 
     $routes->get('blood/request/delete/(:num)', 'BloodRequestVontroller::delete/$1', ['as' => 'admin.blood.request.delete']);
 
-    $routes->get('blood/request/show/(:num)', 'BloodRequestVontroller::show/$1', ['as' => 'admin.blood.request.show']);
+    $routes->get('blood/request/view/(:num)', 'BloodRequestVontroller::show/$1', ['as' => 'admin.blood.request.show']);
 
     $routes->group('', ['filter' => 'role:sadmin', 'namespace' => 'App\Controllers\Admin'], static function ($routes) {
         $routes->get('pages', 'PageController::index', ['as' => 'admin.page.index']);
