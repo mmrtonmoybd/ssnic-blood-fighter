@@ -31,12 +31,13 @@ class Dashboard extends BaseController
             ->where("YEAR(created_at) = '" . date('Y') . "'")
             ->groupBy('MONTH(created_at)')->findAll();
 
-        $uregmonthly = $umodel->select("COUNT(id) as count, MONTHNAME(created_at) as monname")
-                             ->where("YEAR(created_at) = '" . date('Y') . "'")
-                             ->groupBy("MONTH(created_at)")->findAll();
+        $uregmonthly = $umodel->select('COUNT(id) as count, MONTHNAME(created_at) as monname')
+            ->where("YEAR(created_at) = '" . date('Y') . "'")
+            ->groupBy('MONTH(created_at)')->findAll();
 
-        $bloodmday = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'true')->countAllResults();
+        $bloodmday  = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'true')->countAllResults();
         $bloodunday = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'false')->countAllResults();
+
         return view('Admin/dashboard', [
             'tucount'     => $tucount,
             'taucount'    => $taucount,
@@ -44,8 +45,8 @@ class Dashboard extends BaseController
             'tablreq'     => $tablreq,
             'blrmonthly'  => $blrmonthly,
             'uregmonthly' => $uregmonthly,
-            'bloodmday' => $bloodmday,
-            'bloodunday' => $bloodunday,
+            'bloodmday'   => $bloodmday,
+            'bloodunday'  => $bloodunday,
         ]);
     }
 }
