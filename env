@@ -27,7 +27,7 @@
 # app.sessionCookieName = 'ci_session'
 # app.sessionExpiration = 7200
 # app.sessionSavePath = null
-# app.sessionMatchIP = false
+ app.sessionMatchIP = true
 # app.sessionTimeToUpdate = 300
 # app.sessionRegenerateDestroy = false
 
@@ -110,8 +110,8 @@
 # SECURITY
 #--------------------------------------------------------------------
 
-# security.csrfProtection = 'cookie'
-# security.tokenRandomize = false
+ security.csrfProtection = 'session'
+ security.tokenRandomize = true
 # security.tokenName = 'csrf_token_name'
 # security.headerName = 'X-CSRF-TOKEN'
 # security.cookieName = 'csrf_cookie_name'
