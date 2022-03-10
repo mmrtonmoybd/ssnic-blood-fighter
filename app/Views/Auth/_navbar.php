@@ -52,6 +52,16 @@ $info  = $model->first();
                 <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
             </li>
                 <?php } ?>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to('page', 1) ?>">About us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to('page', 2) ?>">Contact us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= route_to('page', 3) ?>">Why donate blood</a>
+            </li>
         </ul>
     </div>
 </nav>

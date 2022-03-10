@@ -61,7 +61,7 @@ class SeetingController extends BaseController
             'siteBkey'    => $this->request->getPost('siteBkey'),
             'siteFkey'    => $this->request->getPost('siteFkey'),
             'siteGAKet'   => $this->request->getPost('siteGAKet'),
-            'siteFName'->{$this}->request->getPost('siteFName'),
+            'siteFName' => $this->request->getPost('siteFName'),
         ];
 
         if ($this->request->getFile('photo')->isValid() && ! $photo->hasMoved()) {

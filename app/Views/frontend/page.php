@@ -4,7 +4,7 @@
 
 <title><?= esc($pdata->seot) ?></title>
 <meta name="description" content="<?= esc($pdata->seod) ?>" />
-<meta name="keywords" content="<?= esc($pdata->skey) ?>" />
+<meta name="keywords" content="<?= esc($pdata->seok) ?>" />
 
 <meta property="og:title" content="<?= esc($pdata->seot) ?>" />
 <meta property="og:description" content="<?= esc($pdata->seod) ?>" />
