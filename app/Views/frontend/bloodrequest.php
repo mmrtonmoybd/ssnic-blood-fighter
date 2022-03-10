@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="details">Details</label>
                             <textarea type="text" name="details" id="summernote" rows="5" class="form-control <?php if (session('errors.details')) : ?>is-invalid<?php endif ?>"  placeholder="Details" required><?= old('details') ?></textarea>
-                             
+
                         </div>
 
                         <br>

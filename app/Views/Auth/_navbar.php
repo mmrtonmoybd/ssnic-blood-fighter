@@ -1,7 +1,7 @@
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark danger-color">
     <?php
 $model = new App\Models\Setting();
-$info = $model->first();
+$info  = $model->first();
 ?>
     <a class="navbar-brand" href="#"><?= esc($info->siteName) ?></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">

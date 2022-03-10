@@ -1,6 +1,6 @@
 <?php
 $model = new App\Models\Setting();
-$mseo = $model->first();
+$mseo  = $model->first();
 ?>
 
 <link rel="canonical" href="<?= base_url(esc(uri_string())) ?>" />

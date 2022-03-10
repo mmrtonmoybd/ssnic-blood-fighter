@@ -13,7 +13,7 @@
           ['Month', 'Blood request'],
           <?php
           foreach ($blrmonthly as $row) {
-            echo "['".$row->monname."',".$row->count."],";
+              echo "['" . $row->monname . "'," . $row->count . '],';
           }
           ?>
         ]);
@@ -34,7 +34,7 @@ google.charts.load('current', {'packages':['corechart']});
           ['Month', 'User registration'],
           <?php
           foreach ($uregmonthly as $row) {
-            echo "['".$row->monname."',".$row->count."],";
+              echo "['" . $row->monname . "'," . $row->count . '],';
           }
           ?>
         ]);

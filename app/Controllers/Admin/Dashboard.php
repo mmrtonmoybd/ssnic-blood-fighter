@@ -11,22 +11,27 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        $umodel = new UserModel();
+        $umodel  = new UserModel();
         $tucount = $umodel->countAllResults();
 
         $date      = Time::parse('90 days ago');
         $beforeday = $date->toDateString();
-        $taucount = $umodel->where('lastdonate <= ', $beforeday)
-               ->orWhere('lastdonate', null)->countAllResults();
+        $taucount  = $umodel->where('lastdonate <= ', $beforeday)
+            ->orWhere('lastdonate', null)->countAllResults();
 
-        $bmodel = new BloodRequest();
-        $tblreq = $bmodel->countAllResults();
+        $bmodel  = new BloodRequest();
+        $tblreq  = $bmodel->countAllResults();
         $tablreq = $bmodel->where('status', false)->countAllResults();
 
-        $blrmonthly = $bmodel->select("COUNT(id) as count, MONTHNAME(created_at) as monname")
-                             ->where("YEAR(created_at) = '" . date('Y') . "'")
-                             ->groupBy("MONTH(created_at)")->findAll();
+        $blrmonthly = $bmodel->select('COUNT(id) as count, MONTHNAME(created_at) as monname')
+            ->where("YEAR(created_at) = '" . date('Y') . "'")
+            ->groupBy('MONTH(created_at)')->findAll();
 
+        $uregmonthly = $umodel->select('COUNT(id) as count, MONTHNAME(created_at) as monname')
+            ->where("YEAR(created_at) = '" . date('Y') . "'")
+            ->groupBy('MONTH(created_at)')->findAll();
+
+<<<<<<< HEAD
         $uregmonthly = $umodel->select("COUNT(id) as count, MONTHNAME(created_at) as monname")
                              ->where("YEAR(created_at) = '" . date('Y') . "'")
                              ->groupBy("MONTH(created_at)")->findAll();
@@ -34,12 +39,14 @@ class Dashboard extends BaseController
         $bloodmday = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'true')->countAllResults();
         $bloodunday = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'false')->countAllResults();
 
+=======
+>>>>>>> cac068d7a3a4c2fc89bf6f5acb54f57431625dec
         return view('Admin/dashboard', [
-            'tucount' => $tucount,
-            'taucount' => $taucount,
-            'tblreq' => $tblreq,
-            'tablreq' => $tablreq,
-            'blrmonthly' => $blrmonthly,
+            'tucount'     => $tucount,
+            'taucount'    => $taucount,
+            'tblreq'      => $tblreq,
+            'tablreq'     => $tablreq,
+            'blrmonthly'  => $blrmonthly,
             'uregmonthly' => $uregmonthly,
             'bloodmday' => $bloodmday,
             'bloodunday' => $bloodunday,

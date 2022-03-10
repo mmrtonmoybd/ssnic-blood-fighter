@@ -1,7 +1,7 @@
 <!-- Footer -->
 <?php
 $model = new App\Models\Setting();
-$info = $model->first();
+$info  = $model->first();
 ?>
     <footer class="page-footer font-small danger-color pt-4">
 

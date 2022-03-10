@@ -3,7 +3,7 @@
 <?= view('frontend/mseo') ?>
 <?php
 $model = new App\Models\Seo();
-$seo = $model->where('sslug', 'register')->first();
+$seo   = $model->where('sslug', 'register')->first();
 ?>
 <title><?= esc($seo->stitle) ?></title>
 <meta name="description" content="<?= esc($seo->sdetails) ?>" />
