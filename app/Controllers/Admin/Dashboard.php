@@ -31,16 +31,12 @@ class Dashboard extends BaseController
             ->where("YEAR(created_at) = '" . date('Y') . "'")
             ->groupBy('MONTH(created_at)')->findAll();
 
-<<<<<<< HEAD
         $uregmonthly = $umodel->select("COUNT(id) as count, MONTHNAME(created_at) as monname")
                              ->where("YEAR(created_at) = '" . date('Y') . "'")
                              ->groupBy("MONTH(created_at)")->findAll();
 
         $bloodmday = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'true')->countAllResults();
         $bloodunday = $bmodel->where("WEEK(created_at) = '" . date('W') . "' AND YEAR(created_at) = '" . date('Y') . "'")->where('status', 'false')->countAllResults();
-
-=======
->>>>>>> cac068d7a3a4c2fc89bf6f5acb54f57431625dec
         return view('Admin/dashboard', [
             'tucount'     => $tucount,
             'taucount'    => $taucount,
