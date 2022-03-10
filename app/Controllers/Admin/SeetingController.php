@@ -20,7 +20,7 @@ class SeetingController extends BaseController
     public function update()
     {
         $rules = [
-            'siteName'    => 'required|alpha_space|max_length[100]',
+            'siteName'    => 'required|alpha_space|max_length[30]',
             'siteEmail'   => 'required|valid_email|max_length[100]',
             'sitePhone'   => 'required|numeric|max_length[15]',
             'siteAddress' => 'required|string|max_length[255]',
@@ -34,6 +34,7 @@ class SeetingController extends BaseController
             'siteBkey'    => 'required|alpha_numeric_punct|max_length[255]',
             'siteFkey'    => 'required|alpha_numeric_punct|max_length[255]',
             'siteGAKet'   => 'required|alpha_numeric_punct|max_length[255]',
+            'siteFName' => 'required|alpha_space|max_length[255]',
         ];
         $photo = $this->request->getFile('photo');
 
@@ -60,6 +61,7 @@ class SeetingController extends BaseController
             'siteBkey'    => $this->request->getPost('siteBkey'),
             'siteFkey'    => $this->request->getPost('siteFkey'),
             'siteGAKet'   => $this->request->getPost('siteGAKet'),
+            'siteFName' -> $this->request->getPost('siteFName'),
         ];
 
         if ($this->request->getFile('photo')->isValid() && ! $photo->hasMoved()) {

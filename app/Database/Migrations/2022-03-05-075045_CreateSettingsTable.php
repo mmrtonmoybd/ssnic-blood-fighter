@@ -17,6 +17,10 @@ class CreateSettingsTable extends Migration
             ],
             'siteName' => [
                 'type'       => 'varchar',
+                'constraint' => 30,
+            ],
+            'siteFName' => [
+                'type'       => 'varchar',
                 'constraint' => 255,
             ],
             'siteEmail' => [

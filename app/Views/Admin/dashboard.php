@@ -28,8 +28,8 @@
         chart.draw(data, options);
       }
 google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChartu);
-      function drawChartu() {
+      google.charts.setOnLoadCallback(drawChart2);
+      function drawChart2() {
         var data = google.visualization.arrayToDataTable([
           ['Month', 'User registration'],
           <?php
@@ -49,9 +49,47 @@ google.charts.load('current', {'packages':['corechart']});
         chart.draw(data, options);
       }
 
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart3);
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'manage and unmanage'],
+          ['Manage', <?= $bloodmday ?>],
+          ['Unmanage', <?= $bloodunday ?>]
+        ]);
+
+        var options = {
+          title: 'Weekly blood manage and unmanage',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div3'));
+        chart.draw(data, options);
+      }
+
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart4);
+      function drawChart4() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'All Donors and inactive donor'],
+          ['Donors', <?= $tucount ?>],
+          ['Inacive', <?= $taucount ?>]
+        ]);
+
+        var options = {
+          title: 'All Donor and Inactive Blood Donor',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div4'));
+        chart.draw(data, options);
+      }
+
       $(window).resize(function(){
   drawChart();
-  drawChartu();
+  drawChart2();
+  drawChart3();
+  drawChart4();
 });
 
     </script>
@@ -115,6 +153,22 @@ google.charts.load('current', {'packages':['corechart']});
             <h3 class="tile-title">Monthly user registation</h3>
             <div class="embed-responsive embed-responsive-16by9">
               <div id="chart_div2" class="embed-responsive-item"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">Weekly blood manage and unmanage</h3>
+            <div class="embed-responsive embed-responsive-16by9">
+              <div id="chart_div3" class="embed-responsive-item"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="tile">
+            <h3 class="tile-title">All Donor and Inactive Blood Donor</h3>
+            <div class="embed-responsive embed-responsive-16by9">
+              <div id="chart_div4" class="embed-responsive-item"></div>
             </div>
           </div>
         </div>

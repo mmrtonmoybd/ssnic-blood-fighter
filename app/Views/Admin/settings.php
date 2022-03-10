@@ -25,7 +25,7 @@
                 <?= csrf_field() ?>
                 <h3 class="tile-title">General settings</h3>
                         <div class="form-group">
-                            <label for="phonenumber">Site name</label>
+                            <label for="phonenumber">Site short name</label>
                             <input type="text" class="form-control <?php if (session('errors.siteName')) : ?>is-invalid<?php endif ?>" placeholder="Site name" value="<?= old('siteName') ?: esc($setting->siteName) ?>" name="siteName">
 
                         </div>
@@ -88,8 +88,13 @@
 
                         </div>
                         <div class="form-group">
+                            <label for="phonenumber">Facebook page full name </label>
+                            <input type="text" class="form-control <?php if (session('errors.siteFName')) : ?>is-invalid<?php endif ?>" placeholder="Facebook page full name" value="<?= old('siteFName') ?: esc($setting->siteFName) ?>" name="siteFName">
+
+                        </div>
+                        <div class="form-group">
                             <label for="phonenumber">Facebook page id </label>
-                            <input type="text" class="form-control <?php if (session('errors.siteBkey')) : ?>is-invalid<?php endif ?>" placeholder="Bing meta key" value="<?= old('siteBkey') ?: esc($setting->siteBkey) ?>" name="siteBkey">
+                            <input type="text" class="form-control <?php if (session('errors.siteBkey')) : ?>is-invalid<?php endif ?>" placeholder="Facebook page id" value="<?= old('siteBkey') ?: esc($setting->siteBkey) ?>" name="siteBkey">
 
                         </div>
                         <div class="form-group">
