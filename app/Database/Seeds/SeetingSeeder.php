@@ -11,7 +11,7 @@ class SeetingSeeder extends Seeder
         $datas = [
             [
                 'siteName'    => 'BWS',
-                'siteFName'    => 'Blood Fighter OF SSnic',
+                'siteFName'   => 'Blood Fighter OF SSnic',
                 'siteEmail'   => 'admin@ssnic.com',
                 'sitePhone'   => '01936559057',
                 'siteAddress' => 'Mymensingh',
