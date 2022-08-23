@@ -21,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@0b33ef444fd672ee683e20491b7798d937c69f8c
         with:
           php-version: ${{ matrix.php-version }}
           extensions: tokenizer
